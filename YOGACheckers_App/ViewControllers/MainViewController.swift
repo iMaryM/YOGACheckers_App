@@ -43,25 +43,9 @@ class MainViewController: UIViewController {
             UserDefaults.standard.setValue("Checker_black_1_queen_1", forKey: KeyesUserDefaults.blackCheckerQueenImage.rawValue)
         }
         
-        buttonViewStartGame.delegate = self
-        buttonViewResults.delegate = self
-        buttonViewSettings.delegate = self
-        
-        buttonHistory.delegate = self
-
-    }
-    
-}
-
-extension MainViewController: CustomButtonDelegate {
-    
-    func buttonDidTap(_ sender: CustomButtonMainMenu) {
-        
-        switch sender {
-        case buttonViewStartGame:
-            
-            guard let checkersViewController = getViewController(from: "Checkers", and: "CheckersViewController") as? CheckersViewController,
-                  let playersViewController = getViewController(from: "Players", and: "PlayersViewController") as? PlayersViewController  else { return }
+        buttonViewStartGame.buttonDidTap = {
+            guard let checkersViewController = self.getViewController(from: "Checkers", and: "CheckersViewController") as? CheckersViewController,
+                  let playersViewController = self.getViewController(from: "Players", and: "PlayersViewController") as? PlayersViewController  else { return }
 
             //проверяем есть ли файс с сохраненной игрой
             let documentDirectoryURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
@@ -69,9 +53,8 @@ extension MainViewController: CustomButtonDelegate {
             
             //если файл есть то отображаем алерт
             if FileManager().fileExists(atPath: fileURL.path) {
-                presentAlertController(with: nil, message: "Do you want to load saved game or start new game?", preferredStyle: .alert, actionButtons: UIAlertAction(title: "Saved game", style: .default, handler: { _ in
+                self.presentAlertController(with: nil, message: "Do you want to load saved game or start new game?", preferredStyle: .alert, actionButtons: UIAlertAction(title: "Saved game", style: .default, handler: { _ in
                     
-                    //self.isNewGame = false
                     checkersViewController.isNewGame = false
                     self.navigationController?.pushViewController(checkersViewController, animated: true)
                     
@@ -84,20 +67,25 @@ extension MainViewController: CustomButtonDelegate {
             } else {
                 //если файла нет, то переходим на вью с шашками
                 checkersViewController.isNewGame = true
-                navigationController?.pushViewController(playersViewController, animated: true)
+                self.navigationController?.pushViewController(playersViewController, animated: true)
             }
-        
-        case buttonViewResults:
-            navigationController?.pushViewController(getViewController(from: "Results", and: "ResultsViewController"), animated: true)
-        case buttonViewSettings:
-            navigationController?.pushViewController(getViewController(from: "Settings", and: "SettingsViewController"), animated: true)
-        case buttonHistory:
-            navigationController?.pushViewController(getViewController(from: "History", and: "HistoryViewController"), animated: true)
-        default:
-            break
         }
         
-    }
+        buttonViewResults.buttonDidTap = {
+            guard let resultsViewController = self.getViewController(from: "Results", and: "ResultsViewController") as? ResultsViewController  else { return }
+            self.navigationController?.pushViewController(resultsViewController, animated: true)
+        }
+        
+        buttonViewSettings.buttonDidTap = {
+            guard let settingsViewController = self.getViewController(from: "Settings", and: "SettingsViewController") as? SettingsViewController  else { return }
+            self.navigationController?.pushViewController(settingsViewController, animated: true)
+        }
 
+        buttonHistory.buttonDidTap = {
+            guard let historyViewController = self.getViewController(from: "History", and: "HistoryViewController") as? HistoryViewController  else { return }
+            self.navigationController?.pushViewController(historyViewController, animated: true)
+        }
+    }
+    
 }
 

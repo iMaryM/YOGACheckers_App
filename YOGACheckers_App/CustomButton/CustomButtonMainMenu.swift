@@ -7,10 +7,6 @@
 
 import UIKit
 
-protocol CustomButtonDelegate: AnyObject {
-    func buttonDidTap(_ sender: CustomButtonMainMenu)
-}
-
 @IBDesignable
 class CustomButtonMainMenu: UIView {
     
@@ -133,7 +129,7 @@ class CustomButtonMainMenu: UIView {
         }
     }
     
-    weak var delegate: CustomButtonDelegate?
+    var buttonDidTap: (() -> ())? = nil
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -152,7 +148,7 @@ class CustomButtonMainMenu: UIView {
     }
     
     @IBAction func buttonAction(_ sender: Any) {
-        delegate?.buttonDidTap(self)
+        buttonDidTap?()
     }
     
 }
