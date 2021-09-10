@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="JVf-49-eHN">
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="5hF-kS-pyk">
+            <objects>
+                <navigationController id="JVf-49-eHN" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" hidden="YES" contentMode="scaleToFill" id="tbI-6h-WzN">
+                        <rect key="frame" x="0.0" y="44" width="390" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="JXU-0g-2Ym" kind="relationship" relationship="rootViewController" id="LG0-e2-o9q"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ag1-bP-Ohb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-177" y="25"/>
+        </scene>
+        <!--Main View Controller-->
+        <scene sceneID="dph-Ew-p1X">
+            <objects>
+                <viewController storyboardIdentifier="MainViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="JXU-0g-2Ym" customClass="MainViewController" customModule="HomeWork_Lesson_13" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="SHZ-Fv-GNg">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checker_board" translatesAutoresizingMaskIntoConstraints="NO" id="H7l-2Q-xey">
+                                <rect key="frame" x="0.0" y="0.0" width="390" height="211"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ijB-Os-X3f" customClass="CustomButtonMainMenu" customModule="HomeWork_Lesson_13" customModuleProvider="target">
+                                <rect key="frame" x="64" y="243" width="262" height="126.66666666666663"/>
+                                <color key="backgroundColor" red="0.93720215559999998" green="0.91353291270000003" blue="0.92942178249999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="text" value="Start Game"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="textColor">
+                                        <color key="value" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="image" value="lotus"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                        <color key="value" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                        <size key="value" width="7" height="7"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6xj-hi-MWr" customClass="CustomButtonMainMenu" customModule="HomeWork_Lesson_13" customModuleProvider="target">
+                                <rect key="frame" x="64" y="401.66666666666663" width="262" height="126.66666666666663"/>
+                                <color key="backgroundColor" red="0.93720215559999998" green="0.91353291270000003" blue="0.92942178249999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                        <color key="value" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                        <size key="value" width="5" height="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="text" value="Results"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="textColor">
+                                        <color key="value" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="image" value="results"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ez9-Kl-wDy" customClass="CustomButtonMainMenu" customModule="HomeWork_Lesson_13" customModuleProvider="target">
+                                <rect key="frame" x="64" y="560.33333333333326" width="262" height="126.33333333333337"/>
+                                <color key="backgroundColor" red="0.93720215559999998" green="0.91353291270000003" blue="0.92942178249999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                        <color key="value" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                        <size key="value" width="5" height="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="text" value="Settings"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="textColor">
+                                        <color key="value" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="image" value="settings"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="bmg-87-lQL">
+                                <rect key="frame" x="16" y="758" width="358" height="44"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pfa-Zr-0sd" customClass="CustomButtonMainMenu" customModule="HomeWork_Lesson_13" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="108.66666666666667" height="44"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="8"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                                <color key="value" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                                <size key="value" width="5" height="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="text" value="History"/>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="textColor">
+                                                <color key="value" red="0.27436995510000001" green="0.23913398390000001" blue="0.24706175920000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="image" keyPath="image" value="history"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                                <real key="value" value="16"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tKd-tc-KKI" customClass="CustomButtonMainMenu" customModule="HomeWork_Lesson_13" customModuleProvider="target">
+                                        <rect key="frame" x="124.66666666666666" y="0.0" width="108.66666666666666" height="44"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="8"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                                <color key="value" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                                <size key="value" width="5" height="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="textColor">
+                                                <color key="value" red="0.27436995510000001" green="0.23913398390000001" blue="0.24706175920000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                                <real key="value" value="16"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="text" value="Rules"/>
+                                            <userDefinedRuntimeAttribute type="image" keyPath="image" value="rules"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="goF-0l-HLv" customClass="CustomButtonMainMenu" customModule="HomeWork_Lesson_13" customModuleProvider="target">
+                                        <rect key="frame" x="249.33333333333329" y="0.0" width="108.66666666666666" height="44"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="8"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                                <color key="value" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                                <size key="value" width="5" height="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="textColor">
+                                                <color key="value" red="0.27436995510000001" green="0.23913398390000001" blue="0.24706175920000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="text" value="About"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                                <real key="value" value="16"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="image" keyPath="image" value="devTeam"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="SO4-sU-tyb"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="aHa-8J-0GG"/>
+                        <color key="backgroundColor" red="0.9333010316" green="0.91353064780000004" blue="0.92942184210000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="ijB-Os-X3f" firstAttribute="top" secondItem="H7l-2Q-xey" secondAttribute="bottom" constant="32" id="1wy-h9-cQp"/>
+                            <constraint firstItem="bmg-87-lQL" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Ez9-Kl-wDy" secondAttribute="bottom" constant="16" id="2aQ-VK-pp0"/>
+                            <constraint firstItem="6xj-hi-MWr" firstAttribute="top" secondItem="ijB-Os-X3f" secondAttribute="bottom" constant="32" id="3Ji-Bc-ues"/>
+                            <constraint firstItem="Ez9-Kl-wDy" firstAttribute="top" secondItem="6xj-hi-MWr" secondAttribute="bottom" constant="32" id="46T-2N-Pdn"/>
+                            <constraint firstItem="Ez9-Kl-wDy" firstAttribute="leading" secondItem="6xj-hi-MWr" secondAttribute="leading" id="5ik-md-FgZ"/>
+                            <constraint firstItem="bmg-87-lQL" firstAttribute="leading" secondItem="aHa-8J-0GG" secondAttribute="leading" constant="16" id="8Nm-LF-XXc"/>
+                            <constraint firstItem="6xj-hi-MWr" firstAttribute="leading" secondItem="ijB-Os-X3f" secondAttribute="leading" id="B8W-Rg-3sn"/>
+                            <constraint firstItem="ijB-Os-X3f" firstAttribute="leading" secondItem="aHa-8J-0GG" secondAttribute="leading" constant="64" id="FlQ-50-OFO"/>
+                            <constraint firstItem="aHa-8J-0GG" firstAttribute="bottom" secondItem="bmg-87-lQL" secondAttribute="bottom" constant="8" id="Hxj-vM-n6I"/>
+                            <constraint firstItem="aHa-8J-0GG" firstAttribute="trailing" secondItem="bmg-87-lQL" secondAttribute="trailing" constant="16" id="JtG-r3-O2e"/>
+                            <constraint firstItem="ijB-Os-X3f" firstAttribute="height" relation="lessThanOrEqual" secondItem="SHZ-Fv-GNg" secondAttribute="height" multiplier="0.15" id="Jwf-Vc-o6b"/>
+                            <constraint firstItem="H7l-2Q-xey" firstAttribute="leading" secondItem="aHa-8J-0GG" secondAttribute="leading" id="R94-zf-K03"/>
+                            <constraint firstItem="H7l-2Q-xey" firstAttribute="height" secondItem="SHZ-Fv-GNg" secondAttribute="height" multiplier="0.25" id="RnW-PZ-FOG"/>
+                            <constraint firstItem="6xj-hi-MWr" firstAttribute="height" secondItem="ijB-Os-X3f" secondAttribute="height" id="Thg-SS-Uks"/>
+                            <constraint firstItem="aHa-8J-0GG" firstAttribute="trailing" secondItem="ijB-Os-X3f" secondAttribute="trailing" constant="64" id="VMr-K1-NP0"/>
+                            <constraint firstItem="Ez9-Kl-wDy" firstAttribute="height" secondItem="6xj-hi-MWr" secondAttribute="height" id="XQv-Rf-Qo0"/>
+                            <constraint firstItem="Ez9-Kl-wDy" firstAttribute="trailing" secondItem="6xj-hi-MWr" secondAttribute="trailing" id="aaK-Ib-NS7"/>
+                            <constraint firstItem="H7l-2Q-xey" firstAttribute="top" secondItem="SHZ-Fv-GNg" secondAttribute="top" id="cuH-Ls-zNV"/>
+                            <constraint firstItem="ijB-Os-X3f" firstAttribute="centerX" secondItem="SHZ-Fv-GNg" secondAttribute="centerX" id="fns-Kh-9F2"/>
+                            <constraint firstItem="aHa-8J-0GG" firstAttribute="trailing" secondItem="H7l-2Q-xey" secondAttribute="trailing" id="weS-rT-G9f"/>
+                            <constraint firstItem="6xj-hi-MWr" firstAttribute="trailing" secondItem="ijB-Os-X3f" secondAttribute="trailing" id="zVe-yF-2CE"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="CuM-64-ywe"/>
+                    <connections>
+                        <outlet property="buttonHistory" destination="pfa-Zr-0sd" id="mbt-T8-dyw"/>
+                        <outlet property="buttonViewResults" destination="6xj-hi-MWr" id="Wie-VA-3tO"/>
+                        <outlet property="buttonViewSettings" destination="Ez9-Kl-wDy" id="ec5-UH-MDe"/>
+                        <outlet property="buttonViewStartGame" destination="ijB-Os-X3f" id="wHJ-hZ-lnV"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ucd-4L-4ky" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="687.76978417266196" y="23.618090452261306"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="checker_board" width="480" height="270"/>
+        <image name="devTeam" width="512" height="512"/>
+        <image name="history" width="500" height="500"/>
+        <image name="lotus" width="2000" height="1503"/>
+        <image name="results" width="520" height="520"/>
+        <image name="rules" width="1600" height="1600"/>
+        <image name="settings" width="1000" height="1059"/>
+    </resources>
+</document>

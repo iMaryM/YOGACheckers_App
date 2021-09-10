@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="StyleScript-Regular.ttf">
+            <string>StyleScript-Regular</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--History View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="HistoryViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y6W-OH-hqX" customClass="HistoryViewController" customModule="HomeWork_Lesson_13" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Oeg-ge-jrA">
+                                <rect key="frame" x="0.0" y="0.0" width="390" height="810"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aez-7Y-1cO">
+                                        <rect key="frame" x="0.0" y="0.0" width="390" height="4389.333333333333"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Checkers: where did they come from and what is their history?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q1K-Xb-N6h">
+                                                <rect key="frame" x="24" y="84" width="342" height="83.333333333333314"/>
+                                                <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="26"/>
+                                                <color key="textColor" red="0.27436995510000001" green="0.23913398390000001" blue="0.24706175920000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1_his" translatesAutoresizingMaskIntoConstraints="NO" id="b2T-iC-RmM">
+                                                <rect key="frame" x="0.0" y="199.33333333333337" width="390" height="390"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="b2T-iC-RmM" secondAttribute="height" multiplier="1:1" id="uby-KF-7R5"/>
+                                                </constraints>
+                                            </imageView>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="2_his" translatesAutoresizingMaskIntoConstraints="NO" id="oaE-A1-sc0">
+                                                <rect key="frame" x="24" y="1340" width="342" height="342"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="oaE-A1-sc0" secondAttribute="height" multiplier="1:1" id="V0w-td-wpS"/>
+                                                </constraints>
+                                            </imageView>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="3_his" translatesAutoresizingMaskIntoConstraints="NO" id="H7n-7A-LGy">
+                                                <rect key="frame" x="24" y="1874" width="342" height="342"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="H7n-7A-LGy" secondAttribute="height" multiplier="1:1" id="aSY-mj-1kq"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6IC-ec-ni4">
+                                                <rect key="frame" x="24" y="908" width="342" height="416"/>
+                                                <string key="text">It is difficult to say exactly when the checkers appeared. But in ancient Egyptian tombs, wall paintings of a game very similar to checkers were found. The game was called senet, and the board, like the one used in checkers, consisted of 64 cells. Of course, over the centuries of existence, the game has changed, and the rules have improved, but the general essence has always remained the same. True, even today there are several varieties of checkers: there are different boards, and different rules depending on the country.</string>
+                                                <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="20"/>
+                                                <color key="textColor" red="0.27436995510000001" green="0.23913398390000001" blue="0.24706175920000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Traditions through the ages" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QUS-HU-Wae">
+                                                <rect key="frame" x="24" y="845.33333333333337" width="342" height="38.666666666666629"/>
+                                                <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="24"/>
+                                                <color key="textColor" red="0.27436995510000001" green="0.23913398390000001" blue="0.24706175920000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GZ5-uS-jzG">
+                                                <rect key="frame" x="24" y="621.33333333333337" width="342" height="192"/>
+                                                <string key="text">We are sure that as a child, just like us, you spent evenings with friends or family over good old checkers. Why is this game losing popularity today? Is the computer going to win? Let's first understand the history of checkers!</string>
+                                                <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="20"/>
+                                                <color key="textColor" red="0.27436995510000001" green="0.23913398390000001" blue="0.24706175920000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Russian history" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3iS-RM-xdj">
+                                                <rect key="frame" x="24" y="2248" width="342" height="38.666666666666515"/>
+                                                <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="24"/>
+                                                <color key="textColor" red="0.27436995510000001" green="0.23913398390000001" blue="0.24706175920000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T7M-v2-fGg">
+                                                <rect key="frame" x="24" y="2310.6666666666665" width="342" height="256"/>
+                                                <string key="text">The history of checkers in Russia begins around the third or fourth centuries. It is believed that the heroes were very fond of playing this game. In the 16th and 17th centuries, checkers were banned by the church: it equated them with drunkenness and foul language. Only in 1649 was the ban officially lifted by Patriarch Nikon.  </string>
+                                                <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="20"/>
+                                                <color key="textColor" red="0.27436995510000001" green="0.23913398390000001" blue="0.24706175920000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="joI-bC-IWL">
+                                                <rect key="frame" x="24" y="2940.6666666666665" width="342" height="224"/>
+                                                <string key="text"> The popularity of checkers in Russia was also influenced by Peter I. There were even special game rooms for checkers at the assemblies established by the tsar. And in 1803 Nikolai Karamzin wrote the first article about this game, which was called "New checkers game".</string>
+                                                <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="20"/>
+                                                <color key="textColor" red="0.27436995510000001" green="0.23913398390000001" blue="0.24706175920000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Everybody played checkers! And the first all-Russian drafts championship took place already in 1887." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I8D-os-0jO">
+                                                <rect key="frame" x="24" y="3538.6666666666665" width="342" height="96"/>
+                                                <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="20"/>
+                                                <color key="textColor" red="0.27436995510000001" green="0.23913398390000001" blue="0.24706175920000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="4_his" translatesAutoresizingMaskIntoConstraints="NO" id="VF1-yf-EK5">
+                                                <rect key="frame" x="24" y="2582.6666666666665" width="342" height="342"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="VF1-yf-EK5" secondAttribute="height" multiplier="1:1" id="K71-T2-0yK"/>
+                                                </constraints>
+                                            </imageView>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="5_his" translatesAutoresizingMaskIntoConstraints="NO" id="WdQ-8v-rsu">
+                                                <rect key="frame" x="24" y="3180.6666666666665" width="342" height="342"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="WdQ-8v-rsu" secondAttribute="height" multiplier="1:1" id="P0h-KL-MK1"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Modern reality" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nhd-uq-dmo">
+                                                <rect key="frame" x="24" y="3666.6666666666665" width="342" height="38.666666666666515"/>
+                                                <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="24"/>
+                                                <color key="textColor" red="0.27436995510000001" green="0.23913398390000001" blue="0.24706175920000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="7_his" translatesAutoresizingMaskIntoConstraints="NO" id="vzq-bI-6Wb">
+                                                <rect key="frame" x="24" y="3729.3333333333335" width="342" height="228"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="vzq-bI-6Wb" secondAttribute="height" multiplier="3:2" id="5oB-zi-ptX"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lPg-bV-MDB">
+                                                <rect key="frame" x="24" y="3973.3333333333339" width="342" height="384"/>
+                                                <string key="text">Even though checkers have given way to modern technologies, it cannot be said that they have disappeared. On the contrary, not so long ago, in 1995, the Russian Drafts Federation was opened, and in 1965  none other than the representative of Russia  Alexander Kandaurov won the world drafts championship . And to this day, Russians often win the world championships in drafts and chess. So, maybe the computers did check, but checkmate is definitely behind the checkers! </string>
+                                                <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="20"/>
+                                                <color key="textColor" red="0.27436995510000001" green="0.23913398390000001" blue="0.24706175920000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qcd-V9-AHR">
+                                                <rect key="frame" x="24" y="1698" width="342" height="160"/>
+                                                <string key="text">In the 16th century, checkers became very popular in Europe. In the middle of the century, in 1547, the book Torquemada was even written in Spain, which detailed the rules of this game. </string>
+                                                <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="20"/>
+                                                <color key="textColor" red="0.27436995510000001" green="0.23913398390000001" blue="0.24706175920000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.9333010316" green="0.91353064780000004" blue="0.92942184210000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <constraints>
+                                            <constraint firstItem="T7M-v2-fGg" firstAttribute="top" secondItem="3iS-RM-xdj" secondAttribute="bottom" constant="24" id="0fy-co-RMj"/>
+                                            <constraint firstItem="Nhd-uq-dmo" firstAttribute="leading" secondItem="aez-7Y-1cO" secondAttribute="leading" constant="24" id="3h9-YM-oeC"/>
+                                            <constraint firstItem="QUS-HU-Wae" firstAttribute="top" secondItem="GZ5-uS-jzG" secondAttribute="bottom" constant="32" id="3mZ-pu-O1h"/>
+                                            <constraint firstAttribute="trailing" secondItem="WdQ-8v-rsu" secondAttribute="trailing" constant="24" id="5yC-Th-YrX"/>
+                                            <constraint firstItem="vzq-bI-6Wb" firstAttribute="leading" secondItem="aez-7Y-1cO" secondAttribute="leading" constant="24" id="6MJ-u3-glt"/>
+                                            <constraint firstItem="joI-bC-IWL" firstAttribute="leading" secondItem="aez-7Y-1cO" secondAttribute="leading" constant="24" id="6XN-wS-qwy"/>
+                                            <constraint firstItem="VF1-yf-EK5" firstAttribute="leading" secondItem="aez-7Y-1cO" secondAttribute="leading" constant="24" id="7uH-fz-dTv"/>
+                                            <constraint firstItem="Qcd-V9-AHR" firstAttribute="top" secondItem="oaE-A1-sc0" secondAttribute="bottom" constant="16" id="85E-m2-ZgP"/>
+                                            <constraint firstAttribute="trailing" secondItem="oaE-A1-sc0" secondAttribute="trailing" constant="24" id="8BZ-hL-Tad"/>
+                                            <constraint firstAttribute="trailing" secondItem="T7M-v2-fGg" secondAttribute="trailing" constant="24" id="8RD-wI-875"/>
+                                            <constraint firstItem="b2T-iC-RmM" firstAttribute="leading" secondItem="aez-7Y-1cO" secondAttribute="leading" id="8an-BL-yoe"/>
+                                            <constraint firstItem="joI-bC-IWL" firstAttribute="top" secondItem="VF1-yf-EK5" secondAttribute="bottom" constant="16" id="8kC-3L-TGj"/>
+                                            <constraint firstItem="b2T-iC-RmM" firstAttribute="top" secondItem="Q1K-Xb-N6h" secondAttribute="bottom" constant="32" id="C9c-mz-yY7"/>
+                                            <constraint firstItem="GZ5-uS-jzG" firstAttribute="top" secondItem="b2T-iC-RmM" secondAttribute="bottom" constant="32" id="Dj0-gf-LeQ"/>
+                                            <constraint firstItem="VF1-yf-EK5" firstAttribute="top" secondItem="T7M-v2-fGg" secondAttribute="bottom" constant="16" id="Drx-LX-g0F"/>
+                                            <constraint firstAttribute="trailing" secondItem="Qcd-V9-AHR" secondAttribute="trailing" constant="24" id="DtJ-Ng-LQp"/>
+                                            <constraint firstAttribute="trailing" secondItem="joI-bC-IWL" secondAttribute="trailing" constant="24" id="F6A-fi-2Wf"/>
+                                            <constraint firstItem="GZ5-uS-jzG" firstAttribute="leading" secondItem="aez-7Y-1cO" secondAttribute="leading" constant="24" id="KWW-9T-VyZ"/>
+                                            <constraint firstItem="lPg-bV-MDB" firstAttribute="leading" secondItem="aez-7Y-1cO" secondAttribute="leading" constant="24" id="KcS-Uh-Uef"/>
+                                            <constraint firstAttribute="trailing" secondItem="GZ5-uS-jzG" secondAttribute="trailing" constant="24" id="Kj7-q7-aFK"/>
+                                            <constraint firstAttribute="trailing" secondItem="vzq-bI-6Wb" secondAttribute="trailing" constant="24" id="Kl5-7b-2zp"/>
+                                            <constraint firstItem="6IC-ec-ni4" firstAttribute="top" secondItem="QUS-HU-Wae" secondAttribute="bottom" constant="24" id="M9F-MW-Cej"/>
+                                            <constraint firstAttribute="trailing" secondItem="lPg-bV-MDB" secondAttribute="trailing" constant="24" id="Msn-zr-u8m"/>
+                                            <constraint firstAttribute="trailing" secondItem="6IC-ec-ni4" secondAttribute="trailing" constant="24" id="NWb-kv-2XE"/>
+                                            <constraint firstItem="I8D-os-0jO" firstAttribute="leading" secondItem="aez-7Y-1cO" secondAttribute="leading" constant="24" id="NWo-jH-2wH"/>
+                                            <constraint firstItem="Q1K-Xb-N6h" firstAttribute="top" secondItem="aez-7Y-1cO" secondAttribute="top" constant="84" id="OiF-Ki-Lbb"/>
+                                            <constraint firstItem="Qcd-V9-AHR" firstAttribute="leading" secondItem="aez-7Y-1cO" secondAttribute="leading" constant="24" id="P0k-Td-nAF"/>
+                                            <constraint firstAttribute="trailing" secondItem="Q1K-Xb-N6h" secondAttribute="trailing" constant="24" id="Phc-wq-34l"/>
+                                            <constraint firstAttribute="trailing" secondItem="b2T-iC-RmM" secondAttribute="trailing" id="QHp-OQ-dQc"/>
+                                            <constraint firstItem="I8D-os-0jO" firstAttribute="top" secondItem="WdQ-8v-rsu" secondAttribute="bottom" constant="16" id="Tjy-4i-krL"/>
+                                            <constraint firstItem="WdQ-8v-rsu" firstAttribute="leading" secondItem="aez-7Y-1cO" secondAttribute="leading" constant="24" id="Wuc-9m-QxN"/>
+                                            <constraint firstItem="oaE-A1-sc0" firstAttribute="top" secondItem="6IC-ec-ni4" secondAttribute="bottom" constant="16" id="XHk-10-D3o"/>
+                                            <constraint firstItem="lPg-bV-MDB" firstAttribute="top" secondItem="vzq-bI-6Wb" secondAttribute="bottom" constant="16" id="XO5-nW-m8C"/>
+                                            <constraint firstAttribute="trailing" secondItem="VF1-yf-EK5" secondAttribute="trailing" constant="24" id="Xgy-Wm-ueP"/>
+                                            <constraint firstAttribute="trailing" secondItem="3iS-RM-xdj" secondAttribute="trailing" constant="24" id="Xjb-jS-Y38"/>
+                                            <constraint firstItem="6IC-ec-ni4" firstAttribute="leading" secondItem="aez-7Y-1cO" secondAttribute="leading" constant="24" id="Yme-ff-rNL"/>
+                                            <constraint firstItem="oaE-A1-sc0" firstAttribute="leading" secondItem="aez-7Y-1cO" secondAttribute="leading" constant="24" id="btd-33-Znl"/>
+                                            <constraint firstItem="3iS-RM-xdj" firstAttribute="top" secondItem="H7n-7A-LGy" secondAttribute="bottom" constant="32" id="c6c-hs-8Su"/>
+                                            <constraint firstItem="T7M-v2-fGg" firstAttribute="leading" secondItem="aez-7Y-1cO" secondAttribute="leading" constant="24" id="eGi-cM-noX"/>
+                                            <constraint firstItem="vzq-bI-6Wb" firstAttribute="top" secondItem="Nhd-uq-dmo" secondAttribute="bottom" constant="24" id="ftu-47-ks6"/>
+                                            <constraint firstAttribute="trailing" secondItem="H7n-7A-LGy" secondAttribute="trailing" constant="24" id="i8C-yQ-W1o"/>
+                                            <constraint firstItem="H7n-7A-LGy" firstAttribute="leading" secondItem="aez-7Y-1cO" secondAttribute="leading" constant="24" id="jIK-Lf-gr5"/>
+                                            <constraint firstAttribute="trailing" secondItem="Nhd-uq-dmo" secondAttribute="trailing" constant="24" id="lZQ-dm-c8c"/>
+                                            <constraint firstAttribute="trailing" secondItem="QUS-HU-Wae" secondAttribute="trailing" constant="24" id="o5V-h0-4He"/>
+                                            <constraint firstItem="3iS-RM-xdj" firstAttribute="leading" secondItem="aez-7Y-1cO" secondAttribute="leading" constant="24" id="o6m-Oy-8gn"/>
+                                            <constraint firstItem="QUS-HU-Wae" firstAttribute="leading" secondItem="aez-7Y-1cO" secondAttribute="leading" constant="24" id="omp-bO-d2Y"/>
+                                            <constraint firstItem="Nhd-uq-dmo" firstAttribute="top" secondItem="I8D-os-0jO" secondAttribute="bottom" constant="32" id="vtQ-6a-Rne"/>
+                                            <constraint firstAttribute="bottom" secondItem="lPg-bV-MDB" secondAttribute="bottom" constant="32" id="wpu-A1-Vfc"/>
+                                            <constraint firstItem="Q1K-Xb-N6h" firstAttribute="leading" secondItem="aez-7Y-1cO" secondAttribute="leading" constant="24" id="x5F-27-nMg"/>
+                                            <constraint firstItem="WdQ-8v-rsu" firstAttribute="top" secondItem="joI-bC-IWL" secondAttribute="bottom" constant="16" id="xhe-sW-ZI5"/>
+                                            <constraint firstItem="H7n-7A-LGy" firstAttribute="top" secondItem="Qcd-V9-AHR" secondAttribute="bottom" constant="16" id="xuW-Cf-55b"/>
+                                            <constraint firstAttribute="trailing" secondItem="I8D-os-0jO" secondAttribute="trailing" constant="24" id="y43-TU-TbW"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="aez-7Y-1cO" firstAttribute="centerX" secondItem="Oeg-ge-jrA" secondAttribute="centerX" id="0Eh-8O-YVK"/>
+                                    <constraint firstItem="aez-7Y-1cO" firstAttribute="top" secondItem="Oeg-ge-jrA" secondAttribute="top" id="QoF-To-xRH"/>
+                                    <constraint firstAttribute="trailing" secondItem="aez-7Y-1cO" secondAttribute="trailing" id="Spd-lI-Yq1"/>
+                                    <constraint firstItem="aez-7Y-1cO" firstAttribute="leading" secondItem="Oeg-ge-jrA" secondAttribute="leading" id="UiQ-4u-RX3"/>
+                                    <constraint firstAttribute="bottom" secondItem="aez-7Y-1cO" secondAttribute="bottom" id="m7N-yD-lj0"/>
+                                </constraints>
+                            </scrollView>
+                            <visualEffectView opaque="NO" alpha="0.75" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Eto-81-ECt">
+                                <rect key="frame" x="0.0" y="0.0" width="390" height="84"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Luj-TL-fSA">
+                                    <rect key="frame" x="0.0" y="0.0" width="390" height="84"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vTS-HK-M06">
+                                            <rect key="frame" x="8" y="45" width="95.666666666666671" height="31"/>
+                                            <fontDescription key="fontDescription" name="StyleScript-Regular" family="Style Script" pointSize="20"/>
+                                            <state key="normal" title="Back to menu" image="chevron.backward" catalog="system">
+                                                <color key="titleColor" red="0.26306366920000002" green="0.26992750170000002" blue="0.31765607000000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="backToMainMenu:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="oVg-mL-KxQ"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="vTS-HK-M06" firstAttribute="leading" secondItem="Luj-TL-fSA" secondAttribute="leading" constant="8" id="9RF-1C-mqt"/>
+                                        <constraint firstAttribute="bottom" secondItem="vTS-HK-M06" secondAttribute="bottom" constant="8" id="Rr8-sm-eG2"/>
+                                    </constraints>
+                                </view>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="84" id="T71-7I-66m"/>
+                                </constraints>
+                                <blurEffect style="light"/>
+                            </visualEffectView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" red="0.9333010316" green="0.91353064780000004" blue="0.92942184210000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="Oeg-ge-jrA" secondAttribute="bottom" id="JI1-Af-XjD"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Oeg-ge-jrA" secondAttribute="trailing" id="Ktr-Pw-Ow1"/>
+                            <constraint firstItem="Oeg-ge-jrA" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="SYz-jg-ecf"/>
+                            <constraint firstItem="Eto-81-ECt" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="V1Q-O4-00o"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Eto-81-ECt" secondAttribute="trailing" id="dXo-Li-Rbq"/>
+                            <constraint firstItem="Eto-81-ECt" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="gLx-gn-HG4"/>
+                            <constraint firstItem="Oeg-ge-jrA" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="mMa-XJ-BX6"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3.0769230769230766" y="91.706161137440759"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="1_his" width="1200" height="533"/>
+        <image name="2_his" width="890" height="565"/>
+        <image name="3_his" width="1200" height="1086"/>
+        <image name="4_his" width="800" height="640"/>
+        <image name="5_his" width="800" height="624"/>
+        <image name="7_his" width="1200" height="798"/>
+        <image name="chevron.backward" catalog="system" width="96" height="128"/>
+    </resources>
+</document>

@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "transparent-computer-icon-clock-icon-5e9e16e8c72cc5.9132687415874188568158.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

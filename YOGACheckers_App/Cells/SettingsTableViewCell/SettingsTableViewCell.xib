@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SettingsTableViewCell" id="KGk-i7-Jjw" customClass="SettingsTableViewCell" customModule="HomeWork_Lesson_13" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="55"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="55"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9We-bE-qpi">
+                        <rect key="frame" x="8" y="17" width="42.5" height="21.5"/>
+                        <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="18"/>
+                        <color key="textColor" red="0.27436995510000001" green="0.23913398390000001" blue="0.24706175920000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rGy-83-AIe">
+                        <rect key="frame" x="299" y="16.5" width="13" height="22"/>
+                        <state key="normal" image="chevron.forward" catalog="system"/>
+                        <connections>
+                            <action selector="nextButtonAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="uNI-j9-eKO"/>
+                        </connections>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="9We-bE-qpi" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="e98-ZK-RmU"/>
+                    <constraint firstAttribute="trailing" secondItem="rGy-83-AIe" secondAttribute="trailing" constant="8" id="hX2-oS-G5I"/>
+                    <constraint firstItem="rGy-83-AIe" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="iff-xt-NK9"/>
+                    <constraint firstItem="9We-bE-qpi" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="yZf-Z1-761"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="nextViewButton" destination="rGy-83-AIe" id="zkw-0P-lrf"/>
+                <outlet property="settingNameLabel" destination="9We-bE-qpi" id="HJd-mz-lJ2"/>
+            </connections>
+            <point key="canvasLocation" x="67" y="113"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="chevron.forward" catalog="system" width="96" height="128"/>
+    </resources>
+</document>
