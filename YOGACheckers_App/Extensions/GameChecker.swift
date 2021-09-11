@@ -53,7 +53,7 @@ extension CheckersViewController {
             guard !cellWhithCheckerNeedFight.filter({$0.position == currentView.frame.origin}).isEmpty else { return }
         }
 
-        let arrayOfPoints = possibleCellSteps(cell: currentView)
+        let arrayOfPoints = getPossibleCellSteps(cell: currentView, arryaOfFightCells: cellWhithCheckerNeedFight)
 
         switch sender.state {
         case .changed:
@@ -63,27 +63,38 @@ extension CheckersViewController {
         
         case .ended:
             var newCheckerView: UIView? = nil //клеточка в которую хотим поставить шашку
+            var isFightChecker = false
             
             //проверяем является ли клетка в которую хотим поставить шашку черной
             for value in arrayOfCellsViews {
                 //проверяем входит ли в текущее местоположение шашки клеточка доски
                 if value.frame.contains(location) {
                     //проверяем входит ли клетка в допустимы дипазон для пермещения
-                    for point in arrayOfPoints {
-                        if value.frame.contains(point) {
-                            newCheckerView = value
-                        }
+                    if !arrayOfPoints.filter({$0.newCell == value.frame.origin}).isEmpty {
+                        newCheckerView = value
                     }
                 }
             }
-            
+
             currentChecker.frame.origin = CGPoint(x: 5, y: 5) // сбрасываем позицию на 5;5 чтобы отцентрировать
 
             //проверяем есть ли в клеточке в которую хотим поставить шашку другая шашка
             guard let newCheckerView = newCheckerView, newCheckerView.subviews.isEmpty,
                   let checker = sender.view else {
                 return }
-
+            
+            //опредяляем была ли побита шашка
+            if !arrayOfPoints.filter({$0.fightCellPoint != nil}).isEmpty  {
+                isFightChecker = true
+            }
+            
+            if isFightChecker {
+                for value in arrayOfPoints {
+                        guard let fightCell = checkerBoard.subviews.filter({$0.frame.origin == value.fightCellPoint!}).first else { return }
+                        fightCell.subviews.first?.removeFromSuperview()
+                }
+            }
+            
             newCheckerView.addSubview(checker) // добавляем шашку на новую клетку
             
             UIView.animate(withDuration: 0.3) {
@@ -185,108 +196,110 @@ extension CheckersViewController {
     }
     
     //функция которая определяет клетки в которые можно ходить
-    func possibleCellSteps(cell: UIView) -> [CGPoint] {
+    func getPossibleCellSteps(cell: UIView, arryaOfFightCells: [Cell]) -> [(fightCellPoint: CGPoint?, newCell: CGPoint)] {
         
-        var arrayOfPoints: [CGPoint] = []
-        
-        //находим координаты клеточек в которых может быть сделан ход (свободный) для белых шашек ВПЕРЕД
-        let pointFreeCellRightSWhiteChecker = CGPoint(x: cell.frame.origin.x + (checkerBoard.frame.width / 8), y: cell.frame.origin.y + (checkerBoard.frame.height / 8))
-        let pointFreeCellLeftSWhiteChecker = CGPoint(x: cell.frame.origin.x - (checkerBoard.frame.width / 8), y: cell.frame.origin.y + (checkerBoard.frame.height / 8))
-        
-        //находим координаты клеточек в которых может быть сделан ход (свободный) для белых шашек НАЗАД
-        let pointFreeCellRightBWhiteChecker = CGPoint(x: cell.frame.origin.x + (checkerBoard.frame.width / 8), y: cell.frame.origin.y - (checkerBoard.frame.height / 8))
-        let pointFreeCellLeftBWhiteChecker = CGPoint(x: cell.frame.origin.x - (checkerBoard.frame.width / 8), y: cell.frame.origin.y - (checkerBoard.frame.height / 8))
-
-        //находим координаты клеточек в котрые может быть сделан ударный ход для белых (вперед вправо, вперед влево, назад вправо, назад влево)
-        let pointFightCellRightSWhiteChecker = CGPoint(x: cell.frame.origin.x + ((checkerBoard.frame.width / 8) * 2), y: cell.frame.origin.y + ((checkerBoard.frame.height / 8) * 2))
-        let pointFightCellLeftSWhiteChecker = CGPoint(x: cell.frame.origin.x - ((checkerBoard.frame.width / 8) * 2), y: cell.frame.origin.y + ((checkerBoard.frame.height / 8) * 2))
-        
-        let pointFightCellRightBWhiteChecker = CGPoint(x: cell.frame.origin.x + ((checkerBoard.frame.width / 8) * 2), y: cell.frame.origin.y - ((checkerBoard.frame.height / 8) * 2))
-        let pointFightCellLeftBWhiteChecker = CGPoint(x: cell.frame.origin.x - ((checkerBoard.frame.width / 8) * 2), y: cell.frame.origin.y - ((checkerBoard.frame.height / 8) * 2))
-        
-        for cell in checkerBoard.subviews {
-            if cell.frame.contains(pointFreeCellRightSWhiteChecker) {
-                if !cell.subviews.isEmpty && cell.subviews.first?.tag != Checker_color.white_checker.rawValue {
-                    arrayOfPoints.append(pointFightCellRightSWhiteChecker)
-                } else {
-                    arrayOfPoints.append(pointFreeCellRightSWhiteChecker)
-                }
-            }
-        }
-        
-        for cell in checkerBoard.subviews {
-            if cell.frame.contains(pointFreeCellLeftSWhiteChecker) {
-                if !cell.subviews.isEmpty && cell.subviews.first?.tag != Checker_color.white_checker.rawValue {
-                    arrayOfPoints.append(pointFightCellLeftSWhiteChecker)
-                } else {
-                    arrayOfPoints.append(pointFreeCellLeftSWhiteChecker)
-                }
-            }
-        }
-        
-        for cell in checkerBoard.subviews {
-            if cell.frame.contains(pointFreeCellRightBWhiteChecker) {
-                if !cell.subviews.isEmpty && cell.subviews.first?.tag != Checker_color.white_checker.rawValue {
-                    arrayOfPoints.append(pointFightCellRightBWhiteChecker)
-                }
-            }
-        }
-        
-        for cell in checkerBoard.subviews {
-            if cell.frame.contains(pointFreeCellLeftBWhiteChecker) {
-                if !cell.subviews.isEmpty && cell.subviews.first?.tag != Checker_color.white_checker.rawValue {
-                    arrayOfPoints.append(pointFightCellLeftBWhiteChecker)
-                }
-            }
-        }
+        var arrayOfPoints: [(fightCellPoint: CGPoint?, newCell: CGPoint)] = []
         
         //находим координаты клеточек в которых может быть сделан ход (свободный) для белых шашек ВПЕРЕД
-        let pointFreeCellRightSBlackChecker = CGPoint(x: cell.frame.origin.x + (checkerBoard.frame.width / 8), y: cell.frame.origin.y - (checkerBoard.frame.height / 8))
-        let pointFreeCellLeftSBlackChecker = CGPoint(x: cell.frame.origin.x - (checkerBoard.frame.width / 8), y: cell.frame.origin.y - (checkerBoard.frame.height / 8))
+        let pointFreeCellRight_SW = CGPoint(x: cell.frame.origin.x + (checkerBoard.frame.width / 8), y: cell.frame.origin.y + (checkerBoard.frame.height / 8))
+        let pointFreeCellLeft_SW = CGPoint(x: cell.frame.origin.x - (checkerBoard.frame.width / 8), y: cell.frame.origin.y + (checkerBoard.frame.height / 8))
         
         //находим координаты клеточек в которых может быть сделан ход (свободный) для белых шашек НАЗАД
-        let pointFreeCellRightBBlackChecker = CGPoint(x: cell.frame.origin.x + (checkerBoard.frame.width / 8), y: cell.frame.origin.y + (checkerBoard.frame.height / 8))
-        let pointFreeCellLeftBBlackChecker = CGPoint(x: cell.frame.origin.x - (checkerBoard.frame.width / 8), y: cell.frame.origin.y + (checkerBoard.frame.height / 8))
+        let pointFreeCellRight_BW = CGPoint(x: cell.frame.origin.x + (checkerBoard.frame.width / 8), y: cell.frame.origin.y - (checkerBoard.frame.height / 8))
+        let pointFreeCellLeft_BW = CGPoint(x: cell.frame.origin.x - (checkerBoard.frame.width / 8), y: cell.frame.origin.y - (checkerBoard.frame.height / 8))
 
         //находим координаты клеточек в котрые может быть сделан ударный ход для белых (вперед вправо, вперед влево, назад вправо, назад влево)
-        let pointFightCellRightSBlackChecker = CGPoint(x: cell.frame.origin.x + ((checkerBoard.frame.width / 8) * 2), y: cell.frame.origin.y - ((checkerBoard.frame.height / 8) * 2))
-        let pointFightCellLeftSBlackChecker = CGPoint(x: cell.frame.origin.x - ((checkerBoard.frame.width / 8) * 2), y: cell.frame.origin.y - ((checkerBoard.frame.height / 8) * 2))
         
-        let pointFightCellRightBBlackChecker = CGPoint(x: cell.frame.origin.x + ((checkerBoard.frame.width / 8) * 2), y: cell.frame.origin.y + ((checkerBoard.frame.height / 8) * 2))
-        let pointFightCellLeftBBlackChecker = CGPoint(x: cell.frame.origin.x - ((checkerBoard.frame.width / 8) * 2), y: cell.frame.origin.y + ((checkerBoard.frame.height / 8) * 2))
+        //вправо вниз
+        let pointFightCellRight_SW = CGPoint(x: cell.frame.origin.x + ((checkerBoard.frame.width / 8) * 2), y: cell.frame.origin.y + ((checkerBoard.frame.height / 8) * 2))
+        //влево вниз
+        let pointFightCellLeft_SW = CGPoint(x: cell.frame.origin.x - ((checkerBoard.frame.width / 8) * 2), y: cell.frame.origin.y + ((checkerBoard.frame.height / 8) * 2))
+        //вправо вверх
+        let pointFightCellRight_BW = CGPoint(x: cell.frame.origin.x + ((checkerBoard.frame.width / 8) * 2), y: cell.frame.origin.y - ((checkerBoard.frame.height / 8) * 2))
+        //влево вверх
+        let pointFightCellLeft_BW = CGPoint(x: cell.frame.origin.x - ((checkerBoard.frame.width / 8) * 2), y: cell.frame.origin.y - ((checkerBoard.frame.height / 8) * 2))
         
-        for cell in checkerBoard.subviews {
-            if cell.frame.contains(pointFreeCellRightSBlackChecker) {
-                if !cell.subviews.isEmpty && cell.subviews.first?.tag != Checker_color.black_checker.rawValue {
-                    arrayOfPoints.append(pointFightCellRightSBlackChecker)
-                } else {
-                    arrayOfPoints.append(pointFreeCellRightSBlackChecker)
+        if arryaOfFightCells.filter({$0.position == cell.frame.origin}).isEmpty {
+            
+            for cell in checkerBoard.subviews {
+                if cell.frame.contains(pointFreeCellRight_SW) {
+                    if currentCheckerToMove == Checker_color.white_checker {
+                        arrayOfPoints.append((fightCellPoint: nil, newCell: pointFreeCellRight_SW))
+                    } else {
+                        arrayOfPoints.append((fightCellPoint: nil, newCell: pointFreeCellRight_BW))
+                    }
                 }
             }
-        }
-        
-        for cell in checkerBoard.subviews {
-            if cell.frame.contains(pointFreeCellLeftSBlackChecker) {
-                if !cell.subviews.isEmpty && cell.subviews.first?.tag != Checker_color.black_checker.rawValue {
-                    arrayOfPoints.append(pointFightCellLeftSBlackChecker)
-                } else {
-                    arrayOfPoints.append(pointFreeCellLeftSBlackChecker)
+            
+            for cell in checkerBoard.subviews {
+                if cell.frame.contains(pointFreeCellLeft_SW) {
+                    if currentCheckerToMove == Checker_color.white_checker {
+                        arrayOfPoints.append((fightCellPoint: nil, newCell: pointFreeCellLeft_SW))
+                    } else {
+                        arrayOfPoints.append((fightCellPoint: nil, newCell: pointFreeCellLeft_BW))
+                    }
                 }
             }
-        }
-        
-        for cell in checkerBoard.subviews {
-            if cell.frame.contains(pointFreeCellRightBBlackChecker) {
-                if !cell.subviews.isEmpty && cell.subviews.first?.tag != Checker_color.black_checker.rawValue {
-                    arrayOfPoints.append(pointFightCellRightBBlackChecker)
+            
+        } else {
+            
+            for cell in checkerBoard.subviews {
+                if cell.frame.contains(pointFreeCellRight_SW) {
+                    if !cell.subviews.isEmpty {
+                        if cell.subviews.first?.tag != currentCheckerToMove.rawValue {
+                            let nextPoint = CGPoint(x: cell.frame.origin.x + (checkerBoard.frame.width / 8), y: cell.frame.origin.y + (checkerBoard.frame.height / 8))
+                            for nextCell in checkerBoard.subviews {
+                                if nextCell.frame.origin == nextPoint && nextCell.subviews.first == nil {
+                                    arrayOfPoints.append((fightCellPoint: pointFreeCellRight_SW, newCell: pointFightCellRight_SW))
+                                }
+                            }
+                        }
+                    }
                 }
             }
-        }
-        
-        for cell in checkerBoard.subviews {
-            if cell.frame.contains(pointFreeCellLeftBBlackChecker) {
-                if !cell.subviews.isEmpty && cell.subviews.first?.tag != Checker_color.black_checker.rawValue {
-                    arrayOfPoints.append(pointFightCellLeftBBlackChecker)
+            
+            for cell in checkerBoard.subviews {
+                if cell.frame.contains(pointFreeCellLeft_SW) {
+                    if !cell.subviews.isEmpty {
+                        if cell.subviews.first?.tag != currentCheckerToMove.rawValue {
+                            let nextPoint = CGPoint(x: cell.frame.origin.x - (checkerBoard.frame.width / 8), y: cell.frame.origin.y + (checkerBoard.frame.height / 8))
+                            for nextCell in checkerBoard.subviews {
+                                if nextCell.frame.origin == nextPoint && nextCell.subviews.first == nil {
+                                    arrayOfPoints.append((fightCellPoint: pointFreeCellLeft_SW, newCell: pointFightCellLeft_SW))
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            
+            for cell in checkerBoard.subviews {
+                if cell.frame.contains(pointFreeCellRight_BW) {
+                    if !cell.subviews.isEmpty {
+                        if cell.subviews.first?.tag != currentCheckerToMove.rawValue {
+                            let nextPoint = CGPoint(x: cell.frame.origin.x + (checkerBoard.frame.width / 8), y: cell.frame.origin.y - (checkerBoard.frame.height / 8))
+                            for nextCell in checkerBoard.subviews {
+                                if nextCell.frame.origin == nextPoint && nextCell.subviews.first == nil {
+                                    arrayOfPoints.append((fightCellPoint: pointFreeCellRight_BW, newCell: pointFightCellRight_BW))
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            
+            for cell in checkerBoard.subviews {
+                if cell.frame.contains(pointFreeCellLeft_BW) {
+                    if !cell.subviews.isEmpty {
+                        if cell.subviews.first?.tag != currentCheckerToMove.rawValue {
+                            let nextPoint = CGPoint(x: cell.frame.origin.x - (checkerBoard.frame.width / 8), y: cell.frame.origin.y - (checkerBoard.frame.height / 8))
+                            for nextCell in checkerBoard.subviews {
+                                if nextCell.frame.origin == nextPoint && nextCell.subviews.first == nil {
+                                    arrayOfPoints.append((fightCellPoint: pointFreeCellLeft_BW, newCell: pointFightCellLeft_BW))
+                                }
+                            }
+                        }
+                    }
                 }
             }
         }
