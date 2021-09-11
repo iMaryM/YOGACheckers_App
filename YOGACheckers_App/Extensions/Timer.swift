@@ -54,4 +54,13 @@ extension CheckersViewController {
         return timeString
     }
     
+    @objc
+    func timerCounter () {
+        second += 1
+        let time = calculateTime(seconds: second)
+        let timeString = convertToTimeString(hours: time.0, minutes: time.1, seconds: time.2)
+        
+        timerLabel.attributedText = addAtributedTextForTimer(for: timeString)
+    }
+    
 }

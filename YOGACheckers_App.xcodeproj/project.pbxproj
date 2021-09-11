@@ -13,6 +13,7 @@
 		8413623226C52B47001D4ECE /* KeyesForFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8413623126C52B47001D4ECE /* KeyesForFile.swift */; };
 		844D458B26BD8F1500F426B0 /* StyleScript-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 844D458A26BD8F1500F426B0 /* StyleScript-Regular.ttf */; };
 		844F5FBE26D3E53200D9F8BB /* StyleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844F5FBD26D3E53200D9F8BB /* StyleManager.swift */; };
+		8457B71B26ED02D000F63D01 /* GameChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8457B71A26ED02D000F63D01 /* GameChecker.swift */; };
 		846076A826DB6605003DC0F9 /* SettingsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846076A726DB6605003DC0F9 /* SettingsManager.swift */; };
 		846076F726DFC9B2003DC0F9 /* PlayersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846076F626DFC9B2003DC0F9 /* PlayersViewController.swift */; };
 		846076F926DFC9C3003DC0F9 /* Players.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 846076F826DFC9C3003DC0F9 /* Players.storyboard */; };
@@ -56,6 +57,7 @@
 		8413623126C52B47001D4ECE /* KeyesForFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyesForFile.swift; sourceTree = "<group>"; };
 		844D458A26BD8F1500F426B0 /* StyleScript-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "StyleScript-Regular.ttf"; sourceTree = "<group>"; };
 		844F5FBD26D3E53200D9F8BB /* StyleManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleManager.swift; sourceTree = "<group>"; };
+		8457B71A26ED02D000F63D01 /* GameChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameChecker.swift; sourceTree = "<group>"; };
 		846076A726DB6605003DC0F9 /* SettingsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsManager.swift; sourceTree = "<group>"; };
 		846076F626DFC9B2003DC0F9 /* PlayersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersViewController.swift; sourceTree = "<group>"; };
 		846076F826DFC9C3003DC0F9 /* Players.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Players.storyboard; sourceTree = "<group>"; };
@@ -236,6 +238,7 @@
 				846488A426CD371000C08884 /* AttributedText.swift */,
 				8460771E26E28940003DC0F9 /* Timer.swift */,
 				8460772026E29C77003DC0F9 /* Date+Format.swift */,
+				8457B71A26ED02D000F63D01 /* GameChecker.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -348,6 +351,7 @@
 				8464889C26CCED3A00C08884 /* CustomCheckerViewController.swift in Sources */,
 				8481DC5C26AF568100840FB3 /* UIViewController+Storyboard.swift in Sources */,
 				846488A126CCF57700C08884 /* Enum.swift in Sources */,
+				8457B71B26ED02D000F63D01 /* GameChecker.swift in Sources */,
 				846488A526CD371000C08884 /* AttributedText.swift in Sources */,
 				8413622E26C44BB4001D4ECE /* UIViewController+Alert.swift in Sources */,
 				8481DC4326AF42DD00840FB3 /* SceneDelegate.swift in Sources */,
