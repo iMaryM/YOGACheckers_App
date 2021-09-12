@@ -90,6 +90,7 @@ extension CheckersViewController {
             
             if isFightChecker {
                 for value in arrayOfPoints {
+                    // здесь косяк (если надо бить две шашки)
                         guard let fightCell = checkerBoard.subviews.filter({$0.frame.origin == value.fightCellPoint!}).first else { return }
                         fightCell.subviews.first?.removeFromSuperview()
                 }
@@ -101,14 +102,35 @@ extension CheckersViewController {
                 checker.transform = .identity
             }
             
-            currentCheckerToMove = currentCheckerToMove == .white_checker ? .black_checker : .white_checker
-            
-            if currentCheckerToMove == .white_checker {
-                labelPlayer.text = "Move: \(SettingsManager.shared.savedPlayerWhite!)"
-                currentCheckerToMoveImageView.image = UIImage(named: SettingsManager.shared.savedWhiteChecker!)
+            if getWinnerColor() != nil {
+                
+                self.timer.invalidate()
+                
+                presentAlertController(with: "Congratilution!", message: getWinnerColor() == .white_checker ? "Player \(SettingsManager.shared.savedPlayerWhite!) WIN!" : "Player \(SettingsManager.shared.savedPlayerBlack!) WIN!", actionButtons: UIAlertAction(title: "Exit game", style: .cancel, handler: { _ in
+                    //удаляем файл с игрой
+                    self.deleteFile()
+                    
+                    //удаление данных про сохраненный таймер
+                    UserDefaults.standard.removeObject(forKey: KeyesUserDefaults.seconds.rawValue)
+                    //удаление данных про цвет шашки которая должна ходить
+                    UserDefaults.standard.removeObject(forKey: KeyesUserDefaults.movedChecker.rawValue)
+                    
+                    self.navigationController?.popToRootViewController(animated: true)
+                    self.timer.invalidate()
+                }))
+                
             } else {
-                labelPlayer.text = "Move: \(SettingsManager.shared.savedPlayerBlack!)"
-                currentCheckerToMoveImageView.image = UIImage(named: SettingsManager.shared.savedBlackChecker!)
+                
+                currentCheckerToMove = currentCheckerToMove == .white_checker ? .black_checker : .white_checker
+                
+                if currentCheckerToMove == .white_checker {
+                    labelPlayer.text = "Move: \(SettingsManager.shared.savedPlayerWhite!)"
+                    currentCheckerToMoveImageView.image = UIImage(named: SettingsManager.shared.savedWhiteChecker!)
+                } else {
+                    labelPlayer.text = "Move: \(SettingsManager.shared.savedPlayerBlack!)"
+                    currentCheckerToMoveImageView.image = UIImage(named: SettingsManager.shared.savedBlackChecker!)
+                }
+                
             }
             
         default:
@@ -222,20 +244,24 @@ extension CheckersViewController {
         if arryaOfFightCells.filter({$0.position == cell.frame.origin}).isEmpty {
             
             for cell in checkerBoard.subviews {
-                if cell.frame.contains(pointFreeCellRight_SW) {
-                    if currentCheckerToMove == Checker_color.white_checker {
+                if currentCheckerToMove == Checker_color.white_checker {
+                    if cell.frame.contains(pointFreeCellRight_SW) {
                         arrayOfPoints.append((fightCellPoint: nil, newCell: pointFreeCellRight_SW))
-                    } else {
+                    }
+                } else {
+                    if cell.frame.contains(pointFreeCellRight_BW) {
                         arrayOfPoints.append((fightCellPoint: nil, newCell: pointFreeCellRight_BW))
                     }
                 }
             }
             
             for cell in checkerBoard.subviews {
-                if cell.frame.contains(pointFreeCellLeft_SW) {
-                    if currentCheckerToMove == Checker_color.white_checker {
+                if currentCheckerToMove == Checker_color.white_checker {
+                    if cell.frame.contains(pointFreeCellLeft_SW) {
                         arrayOfPoints.append((fightCellPoint: nil, newCell: pointFreeCellLeft_SW))
-                    } else {
+                    }
+                } else {
+                    if cell.frame.contains(pointFreeCellLeft_BW) {
                         arrayOfPoints.append((fightCellPoint: nil, newCell: pointFreeCellLeft_BW))
                     }
                 }
@@ -306,6 +332,25 @@ extension CheckersViewController {
         
         return arrayOfPoints
         
+    }
+
+    //функция для определения победителя
+    func getWinnerColor() -> Checker_color? {
+        var winnerColor: Checker_color? = nil
+        let arrayOfCheckerCells = createArryaOfCells()
+        
+        let arrayOfWhiteCheckers = arrayOfCheckerCells.filter({$0.checker?.color == .white_checker})
+        let arrayOfBlachCheckers = arrayOfCheckerCells.filter({$0.checker?.color == .black_checker})
+        
+        if arrayOfWhiteCheckers.count == 0 {
+            winnerColor = .black_checker
+        }
+        
+        if arrayOfBlachCheckers.count == 0 {
+            winnerColor = .white_checker
+        }
+        
+        return winnerColor
     }
     
 }
