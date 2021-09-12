@@ -11,11 +11,15 @@ extension CheckersViewController {
     
     func drawCheckerboard() {
         //отрисовка рамочки для доски
-        let checkerBoardBoarder = UIView(frame: CGRect(origin: .zero, size: CGSize(width: screenSize.width - 12, height: screenSize.width - 12)))
-        checkerBoardBoarder.center = view.center
-        checkerBoardBoarder.layer.borderWidth = 9
-        checkerBoardBoarder.layer.borderColor = UIColor(red: 188 / 255, green: 169 / 255, blue: 137 / 255, alpha: 1).cgColor
-        view.addSubview(checkerBoardBoarder)
+        let checkerBoardBoarderLarge = UIImageView(frame: CGRect(origin: .zero, size: CGSize(width: screenSize.width - 12, height: screenSize.width - 12)))
+        checkerBoardBoarderLarge.image = UIImage(named: "light_3")
+        checkerBoardBoarderLarge.center = view.center
+        view.addSubview(checkerBoardBoarderLarge)
+        
+        let checkerBoardBoarderSmall = UIImageView(frame: CGRect(origin: .zero, size: CGSize(width: screenSize.width - 28, height: screenSize.width - 28)))
+        checkerBoardBoarderSmall.image = UIImage(named: "dark_3")
+        checkerBoardBoarderSmall.center = view.center
+        view.addSubview(checkerBoardBoarderSmall)
         
         //отрисовка доски без клеточек
         checkerBoard = UIView(frame: CGRect(origin: .zero, size: CGSize(width: screenSize.width - 32, height: screenSize.width - 32)))
