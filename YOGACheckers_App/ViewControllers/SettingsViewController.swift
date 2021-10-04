@@ -6,12 +6,15 @@
 //
 
 import UIKit
+import AVFoundation
 
 class SettingsViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    var settings: [String] = ["Custom checker", "Custom backgroung"]
+    var musicPlayer: AVPlayer?
+    
+    var settings: [String] = ["Custom checker", "Custom backgroung", "Custom Music"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,6 +76,12 @@ extension SettingsViewController: UITableViewDataSource {
         if indexPath.row == 1 {
             guard let customBackgroundViewController = getViewController(from: "CustomBackground", and: "CustomBackgroundViewController") as? CustomBackgroundViewController else { return }
             navigationController?.pushViewController(customBackgroundViewController, animated: true)
+        }
+        
+        if indexPath.row == 2 {
+            guard let customMusicViewController = getViewController(from: "CustomMusic", and: "CustomMusicViewController") as? CustomMusicViewController else { return }
+            customMusicViewController.musicPlayer = musicPlayer
+            navigationController?.pushViewController(customMusicViewController, animated: true)
         }
         
         tableView.deselectRow(at: indexPath, animated: true)

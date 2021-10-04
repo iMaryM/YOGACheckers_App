@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class MainViewController: UIViewController {
 
@@ -22,6 +23,8 @@ class MainViewController: UIViewController {
     
     var blurEffectView = UIVisualEffectView()
     var playersView = UIView()
+    
+    var playerMusic: AVPlayer?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,6 +44,13 @@ class MainViewController: UIViewController {
         
         if UserDefaults.standard.value(forKey: KeyesUserDefaults.blackCheckerQueenImage.rawValue) == nil {
             UserDefaults.standard.setValue("Checker_black_1_queen_1", forKey: KeyesUserDefaults.blackCheckerQueenImage.rawValue)
+        }
+        
+        setMusic()
+        
+        if SettingsManager.shared.musicOnOff == 0 {
+            playerMusic?.play()
+            playerMusic?.volume = 0.1
         }
         
         buttonViewStartGame.buttonDidTap = {
@@ -78,6 +88,7 @@ class MainViewController: UIViewController {
         
         buttonViewSettings.buttonDidTap = {
             guard let settingsViewController = self.getViewController(from: "Settings", and: "SettingsViewController") as? SettingsViewController  else { return }
+            settingsViewController.musicPlayer = self.playerMusic
             self.navigationController?.pushViewController(settingsViewController, animated: true)
         }
 
@@ -85,6 +96,16 @@ class MainViewController: UIViewController {
             guard let historyViewController = self.getViewController(from: "History", and: "HistoryViewController") as? HistoryViewController  else { return }
             self.navigationController?.pushViewController(historyViewController, animated: true)
         }
+    }
+    
+    func setMusic() {
+        guard let pathMusic = Bundle.main.path(forResource: "Hans_Zimmer_Rain", ofType: "mp3") else {return}
+        
+        let URLMusic = URL(fileURLWithPath: pathMusic)
+        
+        let asset = AVAsset(url: URLMusic)
+        let playerItem = AVPlayerItem(asset: asset)
+        playerMusic = AVPlayer(playerItem: playerItem)
     }
     
 }

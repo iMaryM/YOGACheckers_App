@@ -100,6 +100,16 @@ class SettingsManager {
         }
     }
     
+    var musicOnOff: Int {
+        set {
+            UserDefaults.standard.setValue(newValue, forKey: KeyesUserDefaults.musicOnOff.rawValue)
+        }
+        
+        get {
+            return UserDefaults.standard.integer(forKey: KeyesUserDefaults.musicOnOff.rawValue)
+        }
+    }
+    
     var savedCellsWithCheckers: [Cell] {
         set {
             let documentDirectoryURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
