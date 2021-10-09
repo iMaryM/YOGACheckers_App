@@ -1,0 +1,46 @@
+/* 
+  Localizable.strings
+  YOGACheckers_App
+
+  Created by Мария Манжос on 9.10.21.
+  
+*/
+
+"button_start_game" = "Почати гру";
+"button_results" = "Результати";
+"button_settings" = "Налаштування";
+"button_history" = "Історія";
+"button_rules" = "Правила";
+"button_about" = "Про програму";
+"allert_message_load_saved_game" = "Хочете завантажити збережену гру або почати нову?";
+"allert_button_saved_game" = "Завантажити збережену гру";
+"allert_button_new_game" = "Нова гра";
+"label_welcome" = "Ласкаво просимо в Relax Checkers!";
+"label_enter_name_player_1" = "Введіть ваше ім'я, будь ласка:";
+"textfield_player_1" = "Гравець 1";
+"label_error_1" = "Введіть ваше ім'я, будь ласка";
+"label_enter_name_player_2" = "Введіть ваше ім'я, будь ласка:";
+"textfield_player_2" = "Гравець 2";
+"label_error_2" = "Введіть ваше ім'я, будь ласка";
+"button_return" = "Назад";
+"button_play" = "Грати";
+"allert_message_save_game" = "Хочете зберегти гру?";
+"allert_button_save_game" = "Зберегти";
+"allert_button_don't_save_game" = "Не зберігати";
+"back_to_menu_button" = "Повернутися в головне меню";
+"custom_checker" = "Налаштувати відображення шашок";
+"custom_background" = "Налаштування фону";
+"custom_music" = "Налаштування музики";
+"custom_language" = "Мови";
+"button_back" = "Назад";
+"label_choose_white_checker" = "Виберіть білу шашку:";
+"label_choose_white_queen_checker" = "Виберіть білу шашку Дамку:";
+"label_choose_black_checker" = "Виберіть чорну шашку:";
+"label_choose_black_queen_checker" = "Виберіть чорну шашку Дамку:";
+"text_colors" = "Коліри";
+"text_images" = "Зображення";
+"alert_add_imge" = "Додати зображення";
+"alert_button_library" = "Медіатека";
+"alert_button_ camera" = "Камера";
+"alert_button_cancel" = "Відміна";
+"label_music" = "Музика";

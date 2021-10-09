@@ -11,12 +11,16 @@ import AVFoundation
 class CustomMusicViewController: UIViewController {
 
     @IBOutlet weak var musicTableView: UITableView!
+    @IBOutlet weak var backButton: UIButton!
     
     var musicPlayer: AVPlayer?
+    var language = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        backButton.setTitle("button_back".localized(by: language), for: .normal)
+        
         setUpTable()
         
     }
@@ -47,6 +51,7 @@ extension CustomMusicViewController: UITableViewDataSource {
             return UITableViewCell()
         }
         
+        cell.musicLabel.text = "label_music".localized(by: language)
         cell.setUpCell(player: musicPlayer)
         return cell
     }

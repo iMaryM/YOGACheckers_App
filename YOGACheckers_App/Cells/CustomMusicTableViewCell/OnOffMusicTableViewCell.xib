@@ -42,6 +42,7 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="musicIsOnOff" destination="7pF-7E-yfD" id="ksd-Ul-Vqy"/>
+                <outlet property="musicLabel" destination="1AG-m8-Pd1" id="2Kk-kD-2wO"/>
             </connections>
             <point key="canvasLocation" x="133" y="105"/>
         </tableViewCell>

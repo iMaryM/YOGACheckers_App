@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -11,7 +12,7 @@
         </array>
     </customFonts>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CustomButtonMainMenu" customModule="HomeWork_Lesson_13" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CustomButtonMainMenu" customModule="YOGACheckers_App" customModuleProvider="target">
             <connections>
                 <outlet property="containerView" destination="iN0-l3-epB" id="z8e-B7-i1g"/>
                 <outlet property="imageView" destination="nbf-ui-Bod" id="atV-f3-Pn5"/>
@@ -29,9 +30,9 @@
                         <constraint firstAttribute="width" secondItem="nbf-ui-Bod" secondAttribute="height" multiplier="1:1" id="DZo-AK-pix"/>
                     </constraints>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start Game" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c3t-v8-FMu">
-                    <rect key="frame" x="127" y="45.5" width="207" height="36.5"/>
-                    <fontDescription key="fontDescription" name="StyleScript-Regular" family="Style Script" pointSize="24"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start Game" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="c3t-v8-FMu">
+                    <rect key="frame" x="135" y="48.5" width="191" height="30.5"/>
+                    <fontDescription key="fontDescription" name="StyleScript-Regular" family="Style Script" pointSize="20"/>
                     <color key="textColor" red="0.27436995510000001" green="0.23913398390000001" blue="0.24706175920000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     <nil key="highlightedColor"/>
                 </label>
@@ -49,12 +50,12 @@
                 <constraint firstAttribute="bottom" secondItem="eud-Hg-Ii2" secondAttribute="bottom" id="1zO-pA-2u4"/>
                 <constraint firstItem="nbf-ui-Bod" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="283-bV-bSC"/>
                 <constraint firstAttribute="trailing" secondItem="eud-Hg-Ii2" secondAttribute="trailing" id="GPO-ky-PmM"/>
-                <constraint firstAttribute="trailing" secondItem="c3t-v8-FMu" secondAttribute="trailing" id="Rc7-or-iPN"/>
+                <constraint firstAttribute="trailing" secondItem="c3t-v8-FMu" secondAttribute="trailing" constant="8" id="Rc7-or-iPN"/>
                 <constraint firstAttribute="bottom" secondItem="nbf-ui-Bod" secondAttribute="bottom" id="Zmi-Ll-B8b"/>
                 <constraint firstItem="eud-Hg-Ii2" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="eGI-rV-jZp"/>
                 <constraint firstItem="eud-Hg-Ii2" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="gQM-Q4-bhh"/>
                 <constraint firstItem="c3t-v8-FMu" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="iqQ-Bj-lEj"/>
-                <constraint firstItem="c3t-v8-FMu" firstAttribute="leading" secondItem="nbf-ui-Bod" secondAttribute="trailing" id="m98-Ro-gB0"/>
+                <constraint firstItem="c3t-v8-FMu" firstAttribute="leading" secondItem="nbf-ui-Bod" secondAttribute="trailing" constant="8" id="m98-Ro-gB0"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="79.710144927536234" y="-187.83482142857142"/>

@@ -15,18 +15,24 @@ class CustomBackgroundViewController: UIViewController {
     @IBOutlet weak var colorsCollectionView: UICollectionView!
     @IBOutlet weak var imagesCollectionView: UICollectionView!
     @IBOutlet weak var blur: UIVisualEffectView!
+    @IBOutlet weak var backButton: UIButton!
+    
+    var language = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        backButton.setTitle("button_back".localized(by: language), for: .normal)
+
+        
         setupChooseBackground()
         
     }
     
     private func setupChooseBackground() {
         chooseBackground.selectedSegmentIndex = 0
-        chooseBackground.setTitle("Colors", forSegmentAt: 0)
-        chooseBackground.setTitle("Images", forSegmentAt: 1)
+        chooseBackground.setTitle("text_colors".localized(by: language), forSegmentAt: 0)
+        chooseBackground.setTitle("text_images".localized(by: language), forSegmentAt: 1)
         
         let attrs: [NSAttributedString.Key : Any] = [   .font : UIFont(name: "StyleScript-Regular", size: 18) ?? UIFont.systemFont(ofSize: 24),
                                                         .foregroundColor : UIColor(red: 84 / 255, green: 85 / 255, blue: 100 / 255, alpha: 1)
@@ -48,13 +54,13 @@ class CustomBackgroundViewController: UIViewController {
             let picker = UIImagePickerController()
             picker.delegate = self
             
-            presentAlertController(with: "Add image", message: nil, preferredStyle: .actionSheet, isUsedTextField: false, actionButtons:
-                                    UIAlertAction(title: "Libruary", style: .default, handler: { _ in
+            presentAlertController(with: "alert_add_imge".localized(by: language), message: nil, preferredStyle: .actionSheet, isUsedTextField: false, actionButtons:
+                                    UIAlertAction(title: "alert_button_library".localized(by: language), style: .default, handler: { _ in
                                         picker.sourceType = .photoLibrary
                                         self.present(picker, animated: true, completion: nil)
             }),
             
-                                   UIAlertAction(title: "Camera", style: .default, handler: { _ in
+                                   UIAlertAction(title: "alert_button_ camera".localized(by: language), style: .default, handler: { _ in
                                     
                                     #if targetEnvironment(simulator)
                                     print("error")
@@ -64,7 +70,7 @@ class CustomBackgroundViewController: UIViewController {
                                     #endif
                                     
             }),
-                                   UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+                                   UIAlertAction(title: "alert_button_cancel".localized(by: language), style: .cancel, handler: nil))
             
             viewOfColors.isHidden = true
             viewOfImages.isHidden = false

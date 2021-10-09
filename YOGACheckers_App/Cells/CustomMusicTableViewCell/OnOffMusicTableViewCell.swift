@@ -11,6 +11,7 @@ import AVFoundation
 class OnOffMusicTableViewCell: UITableViewCell {
     
     @IBOutlet weak var musicIsOnOff: UISwitch!
+    @IBOutlet weak var musicLabel: UILabel!
     
     var musicPlayer: AVPlayer?
     

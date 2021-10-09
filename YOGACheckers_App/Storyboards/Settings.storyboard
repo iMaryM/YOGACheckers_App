@@ -59,6 +59,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="backButton" destination="2WR-iJ-saa" id="K3T-Ig-ngt"/>
                         <outlet property="tableView" destination="pns-a5-4yS" id="oLy-0Y-YYx"/>
                     </connections>
                 </viewController>

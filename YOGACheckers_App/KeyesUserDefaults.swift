@@ -18,4 +18,6 @@ enum KeyesUserDefaults: String {
     case blackCheckerImage = "blackCheckerImage_"
     case blackCheckerQueenImage = "blackCheckerQueenImage_"
     case musicOnOff = "music_On_Off"
+    case localLanguage = "local_language"
+    case userLanguage = "user_language"
 }

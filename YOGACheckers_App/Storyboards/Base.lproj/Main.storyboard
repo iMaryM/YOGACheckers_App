@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="JVf-49-eHN">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="JVf-49-eHN">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -26,7 +27,7 @@
         <!--Main View Controller-->
         <scene sceneID="dph-Ew-p1X">
             <objects>
-                <viewController storyboardIdentifier="MainViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="JXU-0g-2Ym" customClass="MainViewController" customModule="HomeWork_Lesson_13" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="JXU-0g-2Ym" customClass="MainViewController" customModule="YOGACheckers_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="SHZ-Fv-GNg">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -34,8 +35,8 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checker_board" translatesAutoresizingMaskIntoConstraints="NO" id="H7l-2Q-xey">
                                 <rect key="frame" x="0.0" y="0.0" width="390" height="211"/>
                             </imageView>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ijB-Os-X3f" customClass="CustomButtonMainMenu" customModule="HomeWork_Lesson_13" customModuleProvider="target">
-                                <rect key="frame" x="64" y="243" width="262" height="126.66666666666663"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ijB-Os-X3f" customClass="CustomButtonMainMenu" customModule="YOGACheckers_App" customModuleProvider="target">
+                                <rect key="frame" x="64" y="242.99999999999997" width="262" height="126.66666666666666"/>
                                 <color key="backgroundColor" red="0.93720215559999998" green="0.91353291270000003" blue="0.92942178249999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -63,8 +64,8 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6xj-hi-MWr" customClass="CustomButtonMainMenu" customModule="HomeWork_Lesson_13" customModuleProvider="target">
-                                <rect key="frame" x="64" y="401.66666666666663" width="262" height="126.66666666666663"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6xj-hi-MWr" customClass="CustomButtonMainMenu" customModule="YOGACheckers_App" customModuleProvider="target">
+                                <rect key="frame" x="64" y="401.66666666666669" width="262" height="126.66666666666669"/>
                                 <color key="backgroundColor" red="0.93720215559999998" green="0.91353291270000003" blue="0.92942178249999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -92,8 +93,8 @@
                                     <userDefinedRuntimeAttribute type="image" keyPath="image" value="results"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ez9-Kl-wDy" customClass="CustomButtonMainMenu" customModule="HomeWork_Lesson_13" customModuleProvider="target">
-                                <rect key="frame" x="64" y="560.33333333333326" width="262" height="126.33333333333337"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ez9-Kl-wDy" customClass="CustomButtonMainMenu" customModule="YOGACheckers_App" customModuleProvider="target">
+                                <rect key="frame" x="64" y="560.33333333333337" width="262" height="126.33333333333337"/>
                                 <color key="backgroundColor" red="0.93720215559999998" green="0.91353291270000003" blue="0.92942178249999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -124,7 +125,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="bmg-87-lQL">
                                 <rect key="frame" x="16" y="758" width="358" height="44"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pfa-Zr-0sd" customClass="CustomButtonMainMenu" customModule="HomeWork_Lesson_13" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pfa-Zr-0sd" customClass="CustomButtonMainMenu" customModule="YOGACheckers_App" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="108.66666666666667" height="44"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -152,7 +153,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tKd-tc-KKI" customClass="CustomButtonMainMenu" customModule="HomeWork_Lesson_13" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tKd-tc-KKI" customClass="CustomButtonMainMenu" customModule="YOGACheckers_App" customModuleProvider="target">
                                         <rect key="frame" x="124.66666666666666" y="0.0" width="108.66666666666666" height="44"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -180,7 +181,7 @@
                                             <userDefinedRuntimeAttribute type="image" keyPath="image" value="rules"/>
                                         </userDefinedRuntimeAttributes>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="goF-0l-HLv" customClass="CustomButtonMainMenu" customModule="HomeWork_Lesson_13" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="goF-0l-HLv" customClass="CustomButtonMainMenu" customModule="YOGACheckers_App" customModuleProvider="target">
                                         <rect key="frame" x="249.33333333333329" y="0.0" width="108.66666666666666" height="44"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -242,7 +243,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="CuM-64-ywe"/>
                     <connections>
+                        <outlet property="buttonAbout" destination="goF-0l-HLv" id="rRO-SP-Qj6"/>
                         <outlet property="buttonHistory" destination="pfa-Zr-0sd" id="mbt-T8-dyw"/>
+                        <outlet property="buttonRules" destination="tKd-tc-KKI" id="ECe-k0-4A7"/>
                         <outlet property="buttonViewResults" destination="6xj-hi-MWr" id="Wie-VA-3tO"/>
                         <outlet property="buttonViewSettings" destination="Ez9-Kl-wDy" id="ec5-UH-MDe"/>
                         <outlet property="buttonViewStartGame" destination="ijB-Os-X3f" id="wHJ-hZ-lnV"/>

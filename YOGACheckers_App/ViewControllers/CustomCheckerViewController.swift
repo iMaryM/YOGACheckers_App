@@ -13,6 +13,11 @@ class CustomCheckerViewController: UIViewController {
     @IBOutlet weak var whiteCheckersQueenContollerView: UICollectionView!
     @IBOutlet weak var blackCheckersCollectionView: UICollectionView!
     @IBOutlet weak var blackCheckersQueenContollerView: UICollectionView!
+    @IBOutlet weak var backButton: UIButton!
+    @IBOutlet weak var chooseWhiteCheckerLabel: UILabel!
+    @IBOutlet weak var chooseWhiteQueenCheckerLabel: UILabel!
+    @IBOutlet weak var chooseBlackCheckerLabel: UILabel!
+    @IBOutlet weak var chooseBlackQueenCheckerLabel: UILabel!
     
     var whiteCheckersImageName = ["Checker_white_1", "Checker_white_2", "Checker_white_3", "Checker_white_4", "Checker_white_5", "Checker_white_6"]
     var whiteCheckersQueenImageName = ["Checker_white_1_queen_1", "Checker_white_1_queen_2", "Checker_white_1_queen_3",
@@ -31,15 +36,26 @@ class CustomCheckerViewController: UIViewController {
     
     var whiteQueens: [String] = []
     var blackQueens: [String] = []
+    var language: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        backButton.setTitle("button_back".localized(by: language), for: .normal)
+        chooseWhiteCheckerLabel.text = "label_choose_white_checker".localized(by: language)
+        chooseWhiteQueenCheckerLabel.text = "label_choose_white_queen_checker".localized(by: language)
+        chooseBlackCheckerLabel.text = "label_choose_black_checker".localized(by: language)
+        chooseBlackQueenCheckerLabel.text = "label_choose_black_queen_checker".localized(by: language)
+        
         setupWhiteCheckersCollectionView(collectionView: whiteCheckersCollectionView)
         setupWhiteCheckersCollectionView(collectionView: whiteCheckersQueenContollerView)
         setupWhiteCheckersCollectionView(collectionView: blackCheckersCollectionView)
         setupWhiteCheckersCollectionView(collectionView: blackCheckersQueenContollerView)
-
     }
     
     private func setupWhiteCheckersCollectionView(collectionView: UICollectionView) {

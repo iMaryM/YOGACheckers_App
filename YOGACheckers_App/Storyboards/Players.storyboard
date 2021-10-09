@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -16,7 +17,7 @@
         <!--Players View Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController storyboardIdentifier="PlayersViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y6W-OH-hqX" customClass="PlayersViewController" customModule="HomeWork_Lesson_13" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PlayersViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y6W-OH-hqX" customClass="PlayersViewController" customModule="YOGACheckers_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -35,19 +36,19 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ke0-91-Zll">
                                 <rect key="frame" x="72.5" y="291" width="269" height="314"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome into Relax Checkers!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fB4-r1-CXz">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome into Relax Checkers!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="fB4-r1-CXz">
                                         <rect key="frame" x="16" y="24" width="237" height="28"/>
                                         <fontDescription key="fontDescription" name="StyleScript-Regular" family="Style Script" pointSize="18"/>
                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="highlightedColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter your name, please:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iiq-6B-qef">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter your name, please:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="Iiq-6B-qef">
                                         <rect key="frame" x="16" y="68" width="237" height="28"/>
                                         <fontDescription key="fontDescription" name="StyleScript-Regular" family="Style Script" pointSize="18"/>
                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="highlightedColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter your name, please:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eii-oJ-gAl">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter your name, please:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="eii-oJ-gAl">
                                         <rect key="frame" x="16" y="154" width="237" height="28"/>
                                         <fontDescription key="fontDescription" name="StyleScript-Regular" family="Style Script" pointSize="18"/>
                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -83,14 +84,14 @@
                                             <action selector="goToPlayersView:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="LSP-hq-Xi6"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Pf-Gl-fj3">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="6" translatesAutoresizingMaskIntoConstraints="NO" id="2Pf-Gl-fj3">
                                         <rect key="frame" x="16" y="138" width="237" height="16"/>
                                         <fontDescription key="fontDescription" name="StyleScript-Regular" family="Style Script" pointSize="14"/>
                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="highlightedColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q1F-Vw-ja9">
-                                        <rect key="frame" x="16" y="224" width="237" height="0.0"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="6" translatesAutoresizingMaskIntoConstraints="NO" id="Q1F-Vw-ja9">
+                                        <rect key="frame" x="16" y="224" width="237" height="16"/>
                                         <fontDescription key="fontDescription" name="StyleScript-Regular" family="Style Script" pointSize="14"/>
                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="highlightedColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -104,6 +105,7 @@
                                     <constraint firstItem="Q1F-Vw-ja9" firstAttribute="leading" secondItem="W1E-Xu-ezd" secondAttribute="leading" id="7QO-KP-aIt"/>
                                     <constraint firstItem="fB4-r1-CXz" firstAttribute="leading" secondItem="Ke0-91-Zll" secondAttribute="leading" constant="16" id="BuH-bf-ZNc"/>
                                     <constraint firstItem="eii-oJ-gAl" firstAttribute="top" secondItem="2Pf-Gl-fj3" secondAttribute="bottom" id="E0B-WL-BeN"/>
+                                    <constraint firstItem="Q1F-Vw-ja9" firstAttribute="height" secondItem="2Pf-Gl-fj3" secondAttribute="height" id="GNL-jH-pKa"/>
                                     <constraint firstAttribute="trailing" secondItem="fB4-r1-CXz" secondAttribute="trailing" constant="16" id="H3O-Um-yby"/>
                                     <constraint firstItem="eii-oJ-gAl" firstAttribute="top" secondItem="hBt-xt-Eap" secondAttribute="bottom" constant="16" id="IM8-qY-9Ga"/>
                                     <constraint firstItem="fB4-r1-CXz" firstAttribute="top" secondItem="Ke0-91-Zll" secondAttribute="top" constant="24" id="JVm-gB-676"/>
@@ -145,11 +147,16 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="enterNamePlayer1Label" destination="Iiq-6B-qef" id="Kxp-0h-TZ0"/>
+                        <outlet property="enterNamePlayer2Label" destination="eii-oJ-gAl" id="nHW-89-D04"/>
                         <outlet property="errorLabel1" destination="2Pf-Gl-fj3" id="ERK-gf-A6c"/>
                         <outlet property="errorLabel2" destination="Q1F-Vw-ja9" id="SJG-lh-kut"/>
+                        <outlet property="playButton" destination="peg-AM-SSn" id="ySG-Hp-hvS"/>
                         <outlet property="player1TextField" destination="hBt-xt-Eap" id="Z2r-Dd-jfH"/>
                         <outlet property="player2TextField" destination="W1E-Xu-ezd" id="XIk-6Z-q9P"/>
                         <outlet property="playersView" destination="Ke0-91-Zll" id="1Zl-3z-HJL"/>
+                        <outlet property="returnButton" destination="BRR-hz-Sut" id="vf7-lF-YOn"/>
+                        <outlet property="welcomeLabel" destination="fB4-r1-CXz" id="OLH-Uq-ogw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

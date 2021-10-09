@@ -37,7 +37,7 @@
                                 <rect key="frame" x="0.0" y="48" width="414" height="45"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eMC-WB-3gb">
-                                        <rect key="frame" x="6" y="10.5" width="137.5" height="24"/>
+                                        <rect key="frame" x="6" y="7" width="95.5" height="31"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" name="StyleScript-Regular" family="Style Script" pointSize="20"/>
                                         <color key="tintColor" red="0.2627450980392157" green="0.26992750170000002" blue="0.31765607000000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -91,6 +91,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="backButton" destination="eMC-WB-3gb" id="xKf-3Q-sOo"/>
                         <outlet property="musicTableView" destination="NcW-L5-qM6" id="TTI-wZ-NHY"/>
                     </connections>
                 </viewController>

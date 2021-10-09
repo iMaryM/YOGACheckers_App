@@ -14,6 +14,7 @@ class CheckersViewController: UIViewController {
     @IBOutlet weak var currentCheckerToMoveImageView: UIImageView!
 
     @IBOutlet weak var labelPlayer: UILabel!
+    @IBOutlet weak var backButton: UIButton!
     
     var checkerBoard = UIView()
     
@@ -43,11 +44,14 @@ class CheckersViewController: UIViewController {
 
     //флаг для определения новая игра или сохраненная
     var isNewGame: Bool = true
+    
+    var language = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         view.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        backButton.setTitle("back_to_menu_button".localized(by: language), for: .normal)
         
         if isNewGame {
             //удаление файла с сохраненной игрой
@@ -60,7 +64,7 @@ class CheckersViewController: UIViewController {
             SettingsManager.shared.savedColorOfCheckerShouldBeMoved = currentCheckerToMove.rawValue
 
             //устанавливаем дату
-            SettingsManager.shared.savedDate = Date().getCurrentDate(from: "dd MMMM yyyy")
+            SettingsManager.shared.savedDate = Date().getCurrentDate(from: "dd MMMM yyyy", locale: Locale(identifier: language))
             
             //отрисовка новой доски
             drawNewCheckerBoard()
@@ -83,10 +87,10 @@ class CheckersViewController: UIViewController {
         }
         
         if SettingsManager.shared.savedColorOfCheckerShouldBeMoved == Checker_color.white_checker.rawValue {
-            labelPlayer.text = "Move: \(SettingsManager.shared.savedPlayerWhite!)"
+            labelPlayer.text = "\(SettingsManager.shared.savedPlayerWhite!)"
             currentCheckerToMoveImageView.image = UIImage(named: SettingsManager.shared.savedWhiteChecker!)
         } else {
-            labelPlayer.text = "Move: \(SettingsManager.shared.savedPlayerBlack!)"
+            labelPlayer.text = "\(SettingsManager.shared.savedPlayerBlack!)"
             currentCheckerToMoveImageView.image = UIImage(named: SettingsManager.shared.savedBlackChecker!)
         }
         
@@ -97,7 +101,7 @@ class CheckersViewController: UIViewController {
     
     @IBAction func backToMenu(_ sender: Any) {
         timer.invalidate()
-        presentAlertController(with: nil, message: "Do you want to save the game?", actionButtons: UIAlertAction(title: "Save", style: .default, handler: { _ in
+        presentAlertController(with: nil, message: "allert_message_save_game".localized(by: language), actionButtons: UIAlertAction(title: "allert_button_save_game".localized(by: language), style: .default, handler: { _ in
             
             //записываем время таймера (секунды) в UserDefaults
             SettingsManager.shared.savedTimer = self.second
@@ -124,7 +128,7 @@ class CheckersViewController: UIViewController {
             
             self.navigationController?.popToRootViewController(animated: true)
             self.timer.invalidate()
-        }), UIAlertAction(title: "Don't save", style: .destructive, handler: { _ in
+        }), UIAlertAction(title: "allert_button_don't_save_game".localized(by: language), style: .destructive, handler: { _ in
         
             //удаляем файл с игрой
             self.deleteFile()

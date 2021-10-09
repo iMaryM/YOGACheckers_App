@@ -110,6 +110,26 @@ class SettingsManager {
         }
     }
     
+    var localLanguage: String? {
+        set {
+            UserDefaults.standard.setValue(newValue, forKey: KeyesUserDefaults.localLanguage.rawValue)
+        }
+        
+        get {
+            return UserDefaults.standard.string(forKey: KeyesUserDefaults.localLanguage.rawValue)
+        }
+    }
+    
+    var userLanguage: String? {
+        set {
+            UserDefaults.standard.setValue(newValue, forKey: KeyesUserDefaults.userLanguage.rawValue)
+        }
+        
+        get {
+            return UserDefaults.standard.string(forKey: KeyesUserDefaults.userLanguage.rawValue)
+        }
+    }
+    
     var savedCellsWithCheckers: [Cell] {
         set {
             let documentDirectoryURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]

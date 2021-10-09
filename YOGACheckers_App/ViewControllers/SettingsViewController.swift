@@ -11,16 +11,27 @@ import AVFoundation
 class SettingsViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var backButton: UIButton!
     
     var musicPlayer: AVPlayer?
     
-    var settings: [String] = ["Custom checker", "Custom backgroung", "Custom Music"]
+    var settings: [String] = []
+    
+    var language: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        setupTable()
 
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        settings = ["custom_checker".localized(by: language), "custom_background".localized(by: language), "custom_music".localized(by: language), "custom_language".localized(by: language)]
+        
+        backButton.setTitle("back_to_menu_button".localized(by: language), for: .normal)
+        setupTable()
+        
     }
     
     func setupTable() {
@@ -39,14 +50,6 @@ extension SettingsViewController: UITableViewDelegate {
 }
 
 extension SettingsViewController: UITableViewDataSource {
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Custom Settings"
-    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
@@ -70,18 +73,28 @@ extension SettingsViewController: UITableViewDataSource {
         
         if indexPath.row == 0 {
             guard let customCheckersViewController = getViewController(from: "CustomChecker", and: "CustomCheckerViewController") as? CustomCheckerViewController else { return }
+            customCheckersViewController.language = language
             navigationController?.pushViewController(customCheckersViewController, animated: true)
         }
         
         if indexPath.row == 1 {
             guard let customBackgroundViewController = getViewController(from: "CustomBackground", and: "CustomBackgroundViewController") as? CustomBackgroundViewController else { return }
+            customBackgroundViewController.language = language
             navigationController?.pushViewController(customBackgroundViewController, animated: true)
         }
         
         if indexPath.row == 2 {
             guard let customMusicViewController = getViewController(from: "CustomMusic", and: "CustomMusicViewController") as? CustomMusicViewController else { return }
             customMusicViewController.musicPlayer = musicPlayer
+            customMusicViewController.language = language
             navigationController?.pushViewController(customMusicViewController, animated: true)
+        }
+        
+        if indexPath.row == 3 {
+            guard let languageViewController = getViewController(from: "Language", and: "LanguageViewController") as? LanguageViewController else { return }
+            languageViewController.musicPlayer = musicPlayer
+            languageViewController.language = language
+            navigationController?.pushViewController(languageViewController, animated: true)
         }
         
         tableView.deselectRow(at: indexPath, animated: true)

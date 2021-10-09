@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -16,7 +17,7 @@
         <!--Custom Checker View Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController storyboardIdentifier="CustomCheckerViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y6W-OH-hqX" customClass="CustomCheckerViewController" customModule="HomeWork_Lesson_13" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CustomCheckerViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y6W-OH-hqX" customClass="CustomCheckerViewController" customModule="YOGACheckers_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -158,8 +159,13 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="backButton" destination="dYA-qT-Hmq" id="kjp-Sf-E3n"/>
                         <outlet property="blackCheckersCollectionView" destination="UDA-o1-lYn" id="0qa-ap-Wm9"/>
                         <outlet property="blackCheckersQueenContollerView" destination="p3D-Yv-tcI" id="QfO-da-qPq"/>
+                        <outlet property="chooseBlackCheckerLabel" destination="JfU-Ik-0bM" id="iSN-M1-bY1"/>
+                        <outlet property="chooseBlackQueenCheckerLabel" destination="o5w-Do-iST" id="xZ2-GZ-zbp"/>
+                        <outlet property="chooseWhiteCheckerLabel" destination="1Ta-FS-2H7" id="5hh-bs-0rP"/>
+                        <outlet property="chooseWhiteQueenCheckerLabel" destination="xeA-5Y-ZNc" id="Jjn-0u-vfM"/>
                         <outlet property="whiteCheckersCollectionView" destination="pMZ-9Y-qeQ" id="vva-42-lPG"/>
                         <outlet property="whiteCheckersQueenContollerView" destination="tHJ-Im-ggp" id="bOj-OA-OLX"/>
                     </connections>
