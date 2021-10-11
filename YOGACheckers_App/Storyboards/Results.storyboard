@@ -37,8 +37,8 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UYO-xf-Xlv">
                                 <rect key="frame" x="0.0" y="48" width="414" height="45"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gMa-SU-XXB">
-                                        <rect key="frame" x="6" y="7" width="95.5" height="31"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gMa-SU-XXB">
+                                        <rect key="frame" x="6" y="7" width="199" height="31"/>
                                         <fontDescription key="fontDescription" name="StyleScript-Regular" family="Style Script" pointSize="20"/>
                                         <color key="tintColor" red="0.32169169190000002" green="0.2814767957" blue="0.34510833019999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <state key="normal" title="Back to menu" image="chevron.backward" catalog="system">
@@ -48,8 +48,8 @@
                                             <action selector="goToMainMenu:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="cZH-bJ-CiE"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YSt-Ag-Qfd">
-                                        <rect key="frame" x="328.5" y="7" width="79.5" height="31"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YSt-Ag-Qfd">
+                                        <rect key="frame" x="209" y="7" width="199" height="31"/>
                                         <fontDescription key="fontDescription" name="StyleScript-Regular" family="Style Script" pointSize="20"/>
                                         <color key="tintColor" red="0.26274509800000001" green="0.26992750170000002" blue="0.31765607000000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
@@ -62,6 +62,8 @@
                                     </button>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="YSt-Ag-Qfd" firstAttribute="leading" secondItem="gMa-SU-XXB" secondAttribute="trailing" constant="4" id="1Fn-L0-Jzs"/>
+                                    <constraint firstItem="gMa-SU-XXB" firstAttribute="width" secondItem="YSt-Ag-Qfd" secondAttribute="width" id="d7p-0C-FWG"/>
                                     <constraint firstItem="YSt-Ag-Qfd" firstAttribute="centerY" secondItem="UYO-xf-Xlv" secondAttribute="centerY" id="gGV-2N-KdW"/>
                                     <constraint firstItem="gMa-SU-XXB" firstAttribute="leading" secondItem="UYO-xf-Xlv" secondAttribute="leading" constant="6" id="rgk-wz-4ka"/>
                                     <constraint firstAttribute="trailing" secondItem="YSt-Ag-Qfd" secondAttribute="trailing" constant="6" id="vPI-qv-4l8"/>

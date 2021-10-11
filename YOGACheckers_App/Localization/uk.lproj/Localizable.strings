@@ -44,3 +44,8 @@
 "alert_button_ camera" = "Камера";
 "alert_button_cancel" = "Відміна";
 "label_music" = "Музика";
+"alert_delete_results_title" = "Видалення всіх результатів";
+"alert_delete_results_message" = "Ви впевнені, що хочете видалити всі результати?";
+"alert_clear_button" = "Видалити";
+"alert_don't_clear_button" = "Ні, не видаляти";
+"button_clear_all" = "Очистити всі";

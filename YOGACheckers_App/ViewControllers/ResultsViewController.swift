@@ -23,6 +23,7 @@ class ResultsViewController: UIViewController {
         
         setupTable()
         
+        clearAllButton.setTitle("button_clear_all".localized(by: language), for: .normal)
         backButton.setTitle("back_to_menu_button".localized(by: language), for: .normal)
     }
     
@@ -38,11 +39,11 @@ class ResultsViewController: UIViewController {
     }
     
     @IBAction func claerAll(_ sender: Any) {
-        presentAlertController(with: "Delete results", message: "Do you want to delete resuls?", preferredStyle: .alert, isUsedTextField: false, actionButtons: UIAlertAction(title: "Clear", style: .destructive, handler: { _ in
+        presentAlertController(with: "alert_delete_results_title".localized(by: language), message: "alert_delete_results_message".localized(by: language), preferredStyle: .alert, isUsedTextField: false, actionButtons: UIAlertAction(title: "alert_clear_button".localized(by: language), style: .destructive, handler: { _ in
             CoreDataManager.shared.deleteResults()
             self.results.removeAll()
             self.resultTableView.reloadData()
-        }), UIAlertAction(title: "Don't clear", style: .cancel, handler: { _ in
+        }), UIAlertAction(title: "alert_don't_clear_button".localized(by: language), style: .cancel, handler: { _ in
         }))
     }
     

@@ -44,3 +44,8 @@
 "alert_button_ camera" = "Camera";
 "alert_button_cancel" = "Cancel";
 "label_music" = "Music";
+"alert_delete_results_title" = "Delete results";
+"alert_delete_results_message" = "Do you want to delete resuls?";
+"alert_clear_button" = "Clear";
+"alert_don't_clear_button" = "Don't clear";
+"button_clear_all" = "Clear All";
