@@ -35,8 +35,8 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checker_board" translatesAutoresizingMaskIntoConstraints="NO" id="H7l-2Q-xey">
                                 <rect key="frame" x="0.0" y="0.0" width="390" height="211"/>
                             </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ijB-Os-X3f" customClass="CustomButtonMainMenu" customModule="YOGACheckers_App" customModuleProvider="target">
-                                <rect key="frame" x="64" y="242.99999999999997" width="262" height="126.66666666666666"/>
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ijB-Os-X3f" customClass="CustomButtonMainMenu" customModule="YOGACheckers_App" customModuleProvider="target">
+                                <rect key="frame" x="64" y="243" width="262" height="126.66666666666663"/>
                                 <color key="backgroundColor" red="0.93720215559999998" green="0.91353291270000003" blue="0.92942178249999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -64,8 +64,8 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6xj-hi-MWr" customClass="CustomButtonMainMenu" customModule="YOGACheckers_App" customModuleProvider="target">
-                                <rect key="frame" x="64" y="401.66666666666669" width="262" height="126.66666666666669"/>
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6xj-hi-MWr" customClass="CustomButtonMainMenu" customModule="YOGACheckers_App" customModuleProvider="target">
+                                <rect key="frame" x="64" y="401.66666666666663" width="262" height="126.66666666666663"/>
                                 <color key="backgroundColor" red="0.93720215559999998" green="0.91353291270000003" blue="0.92942178249999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -93,8 +93,8 @@
                                     <userDefinedRuntimeAttribute type="image" keyPath="image" value="results"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ez9-Kl-wDy" customClass="CustomButtonMainMenu" customModule="YOGACheckers_App" customModuleProvider="target">
-                                <rect key="frame" x="64" y="560.33333333333337" width="262" height="126.33333333333337"/>
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ez9-Kl-wDy" customClass="CustomButtonMainMenu" customModule="YOGACheckers_App" customModuleProvider="target">
+                                <rect key="frame" x="64" y="560.33333333333326" width="262" height="126.33333333333337"/>
                                 <color key="backgroundColor" red="0.93720215559999998" green="0.91353291270000003" blue="0.92942178249999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">

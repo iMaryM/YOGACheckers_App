@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19206" systemVersion="20G165" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Results" representedClassName="Results" syncable="YES">
+        <attribute name="checker_image_player_1" attributeType="String"/>
+        <attribute name="checker_image_player_2" attributeType="String"/>
+        <attribute name="date_of_win" attributeType="String"/>
+        <attribute name="duration" attributeType="String"/>
+        <attribute name="player_1" attributeType="String"/>
+        <attribute name="player_2" attributeType="String"/>
+        <attribute name="winner" attributeType="String"/>
+    </entity>
+    <elements>
+        <element name="Results" positionX="-20677.02117919922" positionY="-3479.044342041016" width="168.3941040039062" height="148"/>
+    </elements>
+</model>

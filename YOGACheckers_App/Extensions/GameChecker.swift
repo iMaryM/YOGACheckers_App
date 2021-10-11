@@ -104,6 +104,20 @@ extension CheckersViewController {
             
             if getWinnerColor() != nil {
                 
+                let time = calculateTime(seconds: SettingsManager.shared.savedTimer)
+                
+                //добавляем запись в таблицу
+                let result_m = Results_m(
+                                            player_1: SettingsManager.shared.savedPlayerWhite,
+                                            checker_image_player_1: SettingsManager.shared.savedWhiteChecker,
+                                            player_2: SettingsManager.shared.savedPlayerBlack,
+                                            checker_image_player_2: SettingsManager.shared.savedBlackChecker,
+                                            winner: getWinnerColor() == .white_checker ? SettingsManager.shared.savedPlayerWhite : SettingsManager.shared.savedPlayerBlack,
+                                            date_of_win: SettingsManager.shared.savedDate,
+                                            duration: convertToTimeString(hours: time.0, minutes: time.1, seconds: time.2))
+                
+                CoreDataManager.shared.addResult(result_m: result_m)
+                
                 self.timer.invalidate()
                 
                 presentAlertController(with: "Congratilution!", message: getWinnerColor() == .white_checker ? "Player \(SettingsManager.shared.savedPlayerWhite!) WIN!" : "Player \(SettingsManager.shared.savedPlayerBlack!) WIN!", actionButtons: UIAlertAction(title: "Exit game", style: .cancel, handler: { _ in
