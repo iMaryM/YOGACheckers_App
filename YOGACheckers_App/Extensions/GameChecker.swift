@@ -45,15 +45,27 @@ extension CheckersViewController {
               let defaultOrigin = sender.view?.frame.origin else { //определяем координаты шашки которую будем двигать
             return
         }
-        
         //проверяем есть ли шашки которые должны обязательно побить
         let cellWhithCheckerNeedFight = getCellWithCheckerNeedToFight(checkerColor: currentCheckerToMove)
         
-        if !cellWhithCheckerNeedFight.isEmpty {
-            guard !cellWhithCheckerNeedFight.filter({$0.position == currentView.frame.origin}).isEmpty else { return }
-        }
+        //получаем массив возможных ходов для шашки, которую мы взяли
+        var arrayOfPoints = getPossibleCellSteps(cell: currentView, arryaOfFightCells: cellWhithCheckerNeedFight)
 
-        let arrayOfPoints = getPossibleCellSteps(cell: currentView, arryaOfFightCells: cellWhithCheckerNeedFight)
+        if let currentViewMustFight = currentViewMustFight {
+            //если есть шашки которые должны бить проверяем шашка которую мы взяли входит в массив шашек, которые должны бить
+            if !cellWhithCheckerNeedFight.isEmpty {
+                guard !cellWhithCheckerNeedFight.filter({$0.position == currentView.frame.origin}).isEmpty else { return }
+            }
+            //получаем массив возможных ходов для шашки, которую мы взяли
+            arrayOfPoints = getPossibleCellSteps(cell: currentViewMustFight, arryaOfFightCells: cellWhithCheckerNeedFight)
+        } else {
+            //если есть шашки которые должны бить проверяем шашка которую мы взяли входит в массив шашек, которые должны бить
+            if !cellWhithCheckerNeedFight.isEmpty {
+                guard !cellWhithCheckerNeedFight.filter({$0.position == currentView.frame.origin}).isEmpty else { return }
+            }
+            //получаем массив возможных ходов для шашки, которую мы взяли
+            arrayOfPoints = getPossibleCellSteps(cell: currentView, arryaOfFightCells: cellWhithCheckerNeedFight)
+        }
 
         switch sender.state {
         case .changed:
@@ -135,20 +147,39 @@ extension CheckersViewController {
                 
             } else {
                 
-                currentCheckerToMove = currentCheckerToMove == .white_checker ? .black_checker : .white_checker
+                //проверяем есть ли шашки которые должны обязательно побить
+                let cellWhithCheckerNeedFight = getCellWithCheckerNeedToFight(checkerColor: currentCheckerToMove)
                 
-                if currentCheckerToMove == .white_checker {
-                    labelPlayer.text = "Move: \(SettingsManager.shared.savedPlayerWhite!)"
-                    currentCheckerToMoveImageView.image = UIImage(named: SettingsManager.shared.savedWhiteChecker!)
+                //если есть шашки которые должны бить проверяем шашка которую мы взяли входит в массив шашек, которые должны бить
+                if !cellWhithCheckerNeedFight.isEmpty, isFightChecker {
+                    guard !cellWhithCheckerNeedFight.filter({$0.position == newCheckerView.frame.origin}).isEmpty else {
+                        currentViewMustFight = nil
+                        getColorForCurrentChecker ()
+                        return
+                    }
+                    //фиксируем шашку, которая должна побить
+                    currentViewMustFight = newCheckerView
                 } else {
-                    labelPlayer.text = "Move: \(SettingsManager.shared.savedPlayerBlack!)"
-                    currentCheckerToMoveImageView.image = UIImage(named: SettingsManager.shared.savedBlackChecker!)
+                    currentViewMustFight = nil
+                    getColorForCurrentChecker ()
                 }
-                
             }
             
         default:
             break
+        }
+    }
+    
+    //функция для определения цвета который должен ходить
+    func getColorForCurrentChecker () {
+        currentCheckerToMove = currentCheckerToMove == .white_checker ? .black_checker : .white_checker
+        
+        if currentCheckerToMove == .white_checker {
+            labelPlayer.text = "Move: \(SettingsManager.shared.savedPlayerWhite!)"
+            currentCheckerToMoveImageView.image = UIImage(named: SettingsManager.shared.savedWhiteChecker!)
+        } else {
+            labelPlayer.text = "Move: \(SettingsManager.shared.savedPlayerBlack!)"
+            currentCheckerToMoveImageView.image = UIImage(named: SettingsManager.shared.savedBlackChecker!)
         }
     }
     

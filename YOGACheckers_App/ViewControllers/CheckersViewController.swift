@@ -47,6 +47,8 @@ class CheckersViewController: UIViewController {
     
     var language = ""
 
+    var currentViewMustFight: UIView?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
