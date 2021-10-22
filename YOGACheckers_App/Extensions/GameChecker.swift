@@ -95,16 +95,19 @@ extension CheckersViewController {
                   let checker = sender.view else {
                 return }
             
+            //определяем клетку в которой была побита шашка
+            let fightedCells = arrayOfPoints.filter({$0.newCell == newCheckerView.frame.origin && $0.fightCellPoint != nil})
+            
             //опредяляем была ли побита шашка
-            if !arrayOfPoints.filter({$0.fightCellPoint != nil}).isEmpty  {
+            if !fightedCells.isEmpty {
                 isFightChecker = true
             }
             
+            //определяем шашку, которую побили и убираем ее с поля
             if isFightChecker {
-                for value in arrayOfPoints {
-                    // здесь косяк (если надо бить две шашки)
-                        guard let fightCell = checkerBoard.subviews.filter({$0.frame.origin == value.fightCellPoint!}).first else { return }
-                        fightCell.subviews.first?.removeFromSuperview()
+                for fightedCell in fightedCells {
+                    guard let fightCellOnCheckerBoard = checkerBoard.subviews.filter({$0.frame.origin == fightedCell.fightCellPoint}).first else { return }
+                    fightCellOnCheckerBoard.subviews.first?.removeFromSuperview()
                 }
             }
             
