@@ -20,9 +20,6 @@ class CheckersViewController: UIViewController {
     
     var cell: Cell = Cell()
     var arrayOfCells: [Cell] = []
-    var cellsWithChecker: [Cell] = []
-    
-    var arrayOfCellsViews = [UIImageView]()
     
     var checker = Checker()
     var arrayOfCheckers: [Checker] = []
@@ -115,18 +112,8 @@ class CheckersViewController: UIViewController {
             //сохраняем массив клеточек
             self.arrayOfCells = self.createArryaOfCells()
             
-            //обнуляем массив (чтобы записывалось заново, а не дописывалось новое)
-            self.cellsWithChecker.removeAll()
-            
-            //находим клеточки с шашками и записываем их в массив
-            for cell in self.arrayOfCells {
-                if cell.checker != nil {
-                    self.cellsWithChecker.append(cell)
-                }
-            }
-            
             //сохраняем в файл массив клеточек с шашками
-            SettingsManager.shared.savedCellsWithCheckers = self.cellsWithChecker
+            SettingsManager.shared.savedCells = self.arrayOfCells
             
             self.navigationController?.popToRootViewController(animated: true)
             self.timer.invalidate()
@@ -170,14 +157,12 @@ class CheckersViewController: UIViewController {
     func drawSavedCheckerBoard(screenSize: CGRect) {
 
         //забираем данные из файла
-        self.cellsWithChecker = SettingsManager.shared.savedCellsWithCheckers
+        self.arrayOfCells = SettingsManager.shared.savedCells
 
         //отрисовка доски
         drawCheckerboard()
         
-        drawCell()
-        
-        drawCheckerFromFile()
+        drawCheckerboardFromFile()
         
         for value in arrayOfCheckersView {
             let tapGesture = UILongPressGestureRecognizer(target: self, action: #selector(tapGestureAction(_:)))
@@ -201,14 +186,23 @@ class CheckersViewController: UIViewController {
             newCell = cell.tag == Cell_color.white_cell.rawValue ? Cell(position: cell.frame.origin, imageName: "light_3", color: Cell_color.white_cell.rawValue) : Cell(position: cell.frame.origin, imageName: "dark_3", color: Cell_color.black_cell.rawValue)
             
             if !cell.subviews.isEmpty {
-
-                guard let color = cell.subviews.first?.tag else {
+                
+                guard let checker = cell.subviews.first else {
                     return []
                 }
-                if color == Checker_color.white_checker.rawValue {
-                    newCell.addChecker(checker: Checker(imageName: (SettingsManager.shared.savedWhiteChecker)!, color: color))
-                } else {
-                    newCell.addChecker(checker: Checker(imageName: (SettingsManager.shared.savedBlackChecker)!, color: color))
+                
+                switch checker.tag {
+                case Checker_color.white_checker.rawValue:
+                    newCell.addChecker(checker: Checker(imageName: (SettingsManager.shared.savedWhiteChecker)!, color: checker.tag, isQueen: false))
+                case Checker_color.white_queen_checker.rawValue:
+                    newCell.addChecker(checker: Checker(imageName: (SettingsManager.shared.savedWhiteCheckerQueen)!, color: checker.tag, isQueen: true))
+                case Checker_color.black_checker.rawValue:
+                    newCell.addChecker(checker: Checker(imageName: (SettingsManager.shared.savedBlackChecker)!, color: checker.tag, isQueen: false))
+                case Checker_color.black_queen_checker.rawValue:
+                    newCell.addChecker(checker: Checker(imageName: (SettingsManager.shared.savedBlackCheckerQueen)!, color: checker.tag, isQueen: true))
+                    
+                default:
+                    break
                 }
                 
             }

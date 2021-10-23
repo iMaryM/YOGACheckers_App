@@ -10,9 +10,10 @@ import UIKit
 class CustomCheckerViewController: UIViewController {
 
     @IBOutlet weak var whiteCheckersCollectionView: UICollectionView!
-    @IBOutlet weak var whiteCheckersQueenContollerView: UICollectionView!
+    @IBOutlet weak var whiteCheckersQueenCollectionView: UICollectionView!
     @IBOutlet weak var blackCheckersCollectionView: UICollectionView!
-    @IBOutlet weak var blackCheckersQueenContollerView: UICollectionView!
+    @IBOutlet weak var blackCheckersQueenCollectionView: UICollectionView!
+    
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var chooseWhiteCheckerLabel: UILabel!
     @IBOutlet weak var chooseWhiteQueenCheckerLabel: UILabel!
@@ -53,9 +54,9 @@ class CustomCheckerViewController: UIViewController {
         chooseBlackQueenCheckerLabel.text = "label_choose_black_queen_checker".localized(by: language)
         
         setupWhiteCheckersCollectionView(collectionView: whiteCheckersCollectionView)
-        setupWhiteCheckersCollectionView(collectionView: whiteCheckersQueenContollerView)
+        setupWhiteCheckersCollectionView(collectionView: whiteCheckersQueenCollectionView)
         setupWhiteCheckersCollectionView(collectionView: blackCheckersCollectionView)
-        setupWhiteCheckersCollectionView(collectionView: blackCheckersQueenContollerView)
+        setupWhiteCheckersCollectionView(collectionView: blackCheckersQueenCollectionView)
     }
     
     private func setupWhiteCheckersCollectionView(collectionView: UICollectionView) {
@@ -78,12 +79,11 @@ extension CustomCheckerViewController: UICollectionViewDelegate {
 extension CustomCheckerViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if collectionView == whiteCheckersCollectionView {
-            return whiteCheckersImageName.count
-        }
         
-        if collectionView == whiteCheckersQueenContollerView  {
-            
+        switch collectionView {
+        case whiteCheckersCollectionView:
+            return whiteCheckersImageName.count
+        case whiteCheckersQueenCollectionView:
             guard let string = SettingsManager.shared.savedWhiteChecker else {return 0}
             
             whiteQueens.removeAll()
@@ -95,14 +95,9 @@ extension CustomCheckerViewController: UICollectionViewDataSource {
             }
             
             return whiteQueens.count
-        }
-        
-        if collectionView == blackCheckersCollectionView {
+        case blackCheckersCollectionView:
             return blackCheckersImageName.count
-        }
-        
-        if collectionView == blackCheckersQueenContollerView  {
-            
+        case blackCheckersQueenCollectionView:
             guard let string = SettingsManager.shared.savedBlackChecker else {return 0}
             
             blackQueens.removeAll()
@@ -114,15 +109,15 @@ extension CustomCheckerViewController: UICollectionViewDataSource {
             }
             
             return blackQueens.count
+        default:
+            return 0
         }
-        
-        return 0
-        
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        if collectionView == whiteCheckersCollectionView {
+        switch collectionView {
+        case whiteCheckersCollectionView:
             guard let cell = whiteCheckersCollectionView.dequeueReusableCell(withReuseIdentifier: "CheckerCollectionViewCell", for: indexPath) as? CheckerCollectionViewCell else {
                 return UICollectionViewCell()
             }
@@ -135,11 +130,17 @@ extension CustomCheckerViewController: UICollectionViewDataSource {
             cell.setupImage(checkerImage: UIImage(named: whiteCheckersImageName[indexPath.row])!)
             
             return cell
-        }
-        
-        if collectionView == whiteCheckersQueenContollerView {
-            guard let cell = whiteCheckersQueenContollerView.dequeueReusableCell(withReuseIdentifier: "CheckerCollectionViewCell", for: indexPath) as? CheckerCollectionViewCell else {
+        case whiteCheckersQueenCollectionView:
+            guard let cell = whiteCheckersQueenCollectionView.dequeueReusableCell(withReuseIdentifier: "CheckerCollectionViewCell", for: indexPath) as? CheckerCollectionViewCell else {
                 return UICollectionViewCell()
+            }
+            
+            whiteQueens.removeAll()
+            
+            for value in whiteCheckersQueenImageName {
+                if value == "\(String(describing: (SettingsManager.shared.savedWhiteChecker)!))_queen_1" || value == "\(String(describing: (SettingsManager.shared.savedWhiteChecker)!))_queen_2"  || value == "\(String(describing: (SettingsManager.shared.savedWhiteChecker)!))_queen_3" {
+                    whiteQueens.append(value)
+                }
             }
             
             if SettingsManager.shared.savedWhiteCheckerQueen == whiteQueens[indexPath.row] {
@@ -150,9 +151,7 @@ extension CustomCheckerViewController: UICollectionViewDataSource {
             cell.setupImage(checkerImage: UIImage(named: whiteQueens[indexPath.row])!)
             
             return cell
-        }
-        
-        if collectionView == blackCheckersCollectionView {
+        case blackCheckersCollectionView:
             guard let cell = blackCheckersCollectionView.dequeueReusableCell(withReuseIdentifier: "CheckerCollectionViewCell", for: indexPath) as? CheckerCollectionViewCell else {
                 return UICollectionViewCell()
             }
@@ -165,11 +164,17 @@ extension CustomCheckerViewController: UICollectionViewDataSource {
             cell.setupImage(checkerImage: UIImage(named: blackCheckersImageName[indexPath.row])!)
             
             return cell
-        }
-        
-        if collectionView == blackCheckersQueenContollerView {
-            guard let cell = blackCheckersQueenContollerView.dequeueReusableCell(withReuseIdentifier: "CheckerCollectionViewCell", for: indexPath) as? CheckerCollectionViewCell else {
+        case blackCheckersQueenCollectionView:
+            guard let cell = blackCheckersQueenCollectionView.dequeueReusableCell(withReuseIdentifier: "CheckerCollectionViewCell", for: indexPath) as? CheckerCollectionViewCell else {
                 return UICollectionViewCell()
+            }
+            
+            blackQueens.removeAll()
+            
+            for value in blackCheckersQueenImageName {
+                if value == "\(String(describing: (SettingsManager.shared.savedBlackChecker)!))_queen_1" || value == "\(String(describing: (SettingsManager.shared.savedBlackChecker)!))_queen_2"  || value == "\(String(describing: (SettingsManager.shared.savedBlackChecker)!))_queen_3" {
+                    blackQueens.append(value)
+                }
             }
             
             if SettingsManager.shared.savedBlackCheckerQueen == blackQueens[indexPath.row] {
@@ -180,42 +185,42 @@ extension CustomCheckerViewController: UICollectionViewDataSource {
             cell.setupImage(checkerImage: UIImage(named: blackQueens[indexPath.row]))
             
             return cell
+        default:
+            return UICollectionViewCell()
         }
-        
-        return UICollectionViewCell()
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        if collectionView == whiteCheckersCollectionView {
-            
+        switch collectionView {
+        case whiteCheckersCollectionView:
             SettingsManager.shared.savedWhiteChecker = whiteCheckersImageName[indexPath.row]
             
             guard let string = SettingsManager.shared.savedWhiteChecker else {return }
             
             SettingsManager.shared.savedWhiteCheckerQueen = "\(String(describing: string))_queen_1"
             
-            whiteCheckersQueenContollerView.reloadData()
+            whiteCheckersQueenCollectionView.reloadData()
             whiteCheckersCollectionView.reloadData()
-        }
-        
-        if collectionView == whiteCheckersQueenContollerView {
+        case whiteCheckersQueenCollectionView:
+            SettingsManager.shared.savedWhiteCheckerQueen = whiteQueens[indexPath.row]
             
-            
-        }
-
-        if collectionView == blackCheckersCollectionView {
-            
+            whiteCheckersQueenCollectionView.reloadData()
+        case blackCheckersCollectionView:
             SettingsManager.shared.savedBlackChecker = blackCheckersImageName[indexPath.row]
             
             guard let string = SettingsManager.shared.savedBlackChecker else {return }
             
             SettingsManager.shared.savedBlackCheckerQueen = "\(String(describing: string))_queen_1"
             
-            blackCheckersQueenContollerView.reloadData()
+            blackCheckersQueenCollectionView.reloadData()
             blackCheckersCollectionView.reloadData()
-
+        case blackCheckersQueenCollectionView:
+            SettingsManager.shared.savedBlackCheckerQueen = blackQueens[indexPath.row]
+            
+            blackCheckersQueenCollectionView.reloadData()
+        default:
+            break
         }
         
     }

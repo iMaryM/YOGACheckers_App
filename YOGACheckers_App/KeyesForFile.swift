@@ -14,4 +14,5 @@ enum KeyesForFile: String {
     case checker = "checker_"
     case checkerImage = "checkerImage_"
     case checkerColor = "checkerColor_"
+    case isCheckerQueen = "isCheckerQueen_"
 }

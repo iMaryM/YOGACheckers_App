@@ -130,7 +130,7 @@ class SettingsManager {
         }
     }
     
-    var savedCellsWithCheckers: [Cell] {
+    var savedCells: [Cell] {
         set {
             let documentDirectoryURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
             let fileURL = documentDirectoryURL.appendingPathComponent("savedGame")

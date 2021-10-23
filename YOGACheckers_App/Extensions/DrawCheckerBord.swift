@@ -54,7 +54,6 @@ extension CheckersViewController {
                 cellView.isUserInteractionEnabled = true
                 
                 checkerBoard.addSubview(cellView)
-                arrayOfCellsViews.append(cellView)
                 
                 x += widthOfCurrentView
             }
@@ -88,30 +87,31 @@ extension CheckersViewController {
         }
     }
     
-    func drawCheckerFromFile() {
+    func drawCheckerboardFromFile() {
         let widthOfCurrentView = checkerBoard.frame.width / 8
         let heightOfCurrentView = checkerBoard.frame.height / 8
         
+        var cellView = UIImageView()
         var checkerView = UIImageView()
         
-        for cell in checkerBoard.subviews {
-            for cellWithChecker in cellsWithChecker {
+        for cell in arrayOfCells {
+            cellView = UIImageView(frame: CGRect(origin: cell.position, size: CGSize(width: widthOfCurrentView, height: heightOfCurrentView)))
+            cellView.image = cell.image
+            cellView.tag = cell.color
+            cellView.isUserInteractionEnabled = true
+            
+            if let checker = cell.checker {
+                checkerView = UIImageView(frame: CGRect(x: 5, y: 5, width: widthOfCurrentView - 10, height: heightOfCurrentView - 10))
+                checkerView.tag = checker.color.rawValue
+                checkerView.image = checker.image
+                checkerView.isUserInteractionEnabled = true
                 
-                if cellWithChecker.position == cell.frame.origin {
-                    
-                    guard let checkerInCell = cellWithChecker.checker else {
-                        return
-                    }
-                    
-                    checkerView = UIImageView(frame: CGRect(x: 5, y: 5, width: widthOfCurrentView - 10, height: heightOfCurrentView - 10))
-                    checkerView.tag = checkerInCell.color.rawValue
-                    checkerView.image = UIImage(named: checkerInCell.imageName!)
-                    checkerView.isUserInteractionEnabled = true
-                    
-                    cell.addSubview(checkerView)
-                    arrayOfCheckersView.append(checkerView)
-                }
+                cellView.addSubview(checkerView)
+                arrayOfCheckersView.append(checkerView)
             }
+            
+            checkerBoard.addSubview(cellView)
+
         }
     }
     
