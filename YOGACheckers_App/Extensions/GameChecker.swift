@@ -45,8 +45,8 @@ extension CheckersViewController {
               }
         
         //проверямем является ли шашка дамкой
-        if currentChecker.tag == Checker_color.white_queen_checker.rawValue || currentChecker.tag == Checker_color.black_queen_checker.rawValue {
-            
+        if (currentChecker.tag == Checker_color.white_queen_checker.rawValue) || (currentChecker.tag == Checker_color.black_queen_checker.rawValue) {
+
         } else {
             
             //проверяем есть ли шашки которые должны обязательно побить
@@ -227,7 +227,8 @@ extension CheckersViewController {
         var arrayCellsWithCheckersToFight: [Cell] = []
         
         for cell in arrayOfCells {
-            if cell.checker?.color == checkerColor {
+            if let checker = cell.checker {
+                
                 //находим координаты клеточек в которых может быть сделан ход (свободный) ВПЕРЕД
                 let pointFreeCellRightS = CGPoint(x: cell.position.x + (checkerBoard.frame.width / 8), y: cell.position.y + (checkerBoard.frame.height / 8))
                 let pointFreeCellLeftS = CGPoint(x: cell.position.x - (checkerBoard.frame.width / 8), y: cell.position.y + (checkerBoard.frame.height / 8))
@@ -235,62 +236,86 @@ extension CheckersViewController {
                 //находим координаты клеточек в которых может быть сделан ход (свободный) НАЗАД
                 let pointFreeCellRightB = CGPoint(x: cell.position.x + (checkerBoard.frame.width / 8), y: cell.position.y - (checkerBoard.frame.height / 8))
                 let pointFreeCellLeftB = CGPoint(x: cell.position.x - (checkerBoard.frame.width / 8), y: cell.position.y - (checkerBoard.frame.height / 8))
-
-                for possibleCell in arrayOfCells {
-                    if possibleCell.position == pointFreeCellRightS {
-                        if possibleCell.checker != nil && possibleCell.checker?.color != checkerColor {
-                            let nextpoint = CGPoint(x: possibleCell.position.x + (checkerBoard.frame.width / 8), y: possibleCell.position.y + (checkerBoard.frame.height / 8))
-                            for nextCell in arrayOfCells {
-                                if nextCell.position == nextpoint && nextCell.checker == nil {
+                
+                //находи клетки в которые шашки могут ходить
+                let nextCellsToMove = arrayOfCells.filter({$0.position == pointFreeCellRightS || $0.position == pointFreeCellLeftS || $0.position == pointFreeCellRightB || $0.position == pointFreeCellLeftB})
+                
+                if checkerColor == .white_checker {
+                    if (checker.color == .white_checker) || (checker.color == .white_queen_checker) {
+                        
+                        if checker.isQueen {
+                            
+                        } else {
+                            
+                            //находим клетки в которых стоят шашки другого цвета
+                            let nextCellWithInverseChecker = nextCellsToMove.filter({($0.checker != nil) && ($0.checker?.color != checker.color)})
+                            
+                            //находим точки следующих клеточек
+                            var nextPointsToMove = [CGPoint]()
+                            
+                            nextCellWithInverseChecker.forEach { cell in
+                                if cell.position == pointFreeCellRightS {
+                                    nextPointsToMove.append(CGPoint(x: cell.position.x + (checkerBoard.frame.width / 8), y: cell.position.y + (checkerBoard.frame.height / 8)))
+                                }
+                                if cell.position == pointFreeCellLeftS {
+                                    nextPointsToMove.append(CGPoint(x: cell.position.x - (checkerBoard.frame.width / 8), y: cell.position.y + (checkerBoard.frame.height / 8)))
+                                }
+                                if cell.position == pointFreeCellRightB {
+                                    nextPointsToMove.append(CGPoint(x: cell.position.x + (checkerBoard.frame.width / 8), y: cell.position.y - (checkerBoard.frame.height / 8)))
+                                }
+                                if cell.position == pointFreeCellLeftB {
+                                    nextPointsToMove.append(CGPoint(x: cell.position.x - (checkerBoard.frame.width / 8), y: cell.position.y - (checkerBoard.frame.height / 8)))
+                                }
+                            }
+                            
+                            //записываем пустые клеточки следующими за клетками с шашками противоположного цвета
+                            for nextPoint in nextPointsToMove {
+                                if !arrayOfCells.filter({($0.position == nextPoint) && ($0.checker == nil)}).isEmpty {
                                     arrayCellsWithCheckersToFight.append(cell)
                                 }
                             }
                         }
-                            break
                     }
                 }
                 
-                for possibleCell in arrayOfCells {
-                    if possibleCell.position == pointFreeCellLeftS {
-                        if possibleCell.checker != nil && possibleCell.checker?.color != checkerColor {
-                            let nextpoint = CGPoint(x: possibleCell.position.x - (checkerBoard.frame.width / 8), y: possibleCell.position.y + (checkerBoard.frame.height / 8))
-                            for nextCell in arrayOfCells {
-                                if nextCell.position == nextpoint && nextCell.checker == nil {
+                if checkerColor == .black_checker {
+                    if (checker.color == .black_checker) || (checker.color == .black_queen_checker) {
+                        
+                        if checker.isQueen {
+                            
+                        } else {
+                            
+                            //находим клетки в которых стоят шашки другого цвета
+                            let nextCellWithInverseChecker = nextCellsToMove.filter({($0.checker != nil) && ($0.checker?.color != checker.color)})
+                            
+                            //находим точки следующих клеточек
+                            var nextPointsToMove = [CGPoint]()
+                            
+                            nextCellWithInverseChecker.forEach { cell in
+                                if cell.position == pointFreeCellRightS {
+                                    nextPointsToMove.append(CGPoint(x: cell.position.x + (checkerBoard.frame.width / 8), y: cell.position.y + (checkerBoard.frame.height / 8)))
+                                }
+                                if cell.position == pointFreeCellLeftS {
+                                    nextPointsToMove.append(CGPoint(x: cell.position.x - (checkerBoard.frame.width / 8), y: cell.position.y + (checkerBoard.frame.height / 8)))
+                                }
+                                if cell.position == pointFreeCellRightB {
+                                    nextPointsToMove.append(CGPoint(x: cell.position.x + (checkerBoard.frame.width / 8), y: cell.position.y - (checkerBoard.frame.height / 8)))
+                                }
+                                if cell.position == pointFreeCellLeftB {
+                                    nextPointsToMove.append(CGPoint(x: cell.position.x - (checkerBoard.frame.width / 8), y: cell.position.y - (checkerBoard.frame.height / 8)))
+                                }
+                            }
+                            
+                            //записываем пустые клеточки следующими за клетками с шашками противоположного цвета
+                            for nextPoint in nextPointsToMove {
+                                if !arrayOfCells.filter({($0.position == nextPoint) && ($0.checker == nil)}).isEmpty {
                                     arrayCellsWithCheckersToFight.append(cell)
                                 }
                             }
                         }
-                            break
                     }
                 }
                 
-                for possibleCell in arrayOfCells {
-                    if possibleCell.position == pointFreeCellRightB {
-                        if possibleCell.checker != nil && possibleCell.checker?.color != checkerColor {
-                            let nextpoint = CGPoint(x: possibleCell.position.x + (checkerBoard.frame.width / 8), y: possibleCell.position.y - (checkerBoard.frame.height / 8))
-                            for nextCell in arrayOfCells {
-                                if nextCell.position == nextpoint && nextCell.checker == nil {
-                                    arrayCellsWithCheckersToFight.append(cell)
-                                }
-                            }
-                        }
-                            break
-                    }
-                }
-                
-                for possibleCell in arrayOfCells {
-                    if possibleCell.position == pointFreeCellLeftB {
-                        if possibleCell.checker != nil && possibleCell.checker?.color != checkerColor {
-                            let nextpoint = CGPoint(x: possibleCell.position.x - (checkerBoard.frame.width / 8), y: possibleCell.position.y - (checkerBoard.frame.height / 8))
-                            for nextCell in arrayOfCells {
-                                if nextCell.position == nextpoint && nextCell.checker == nil {
-                                    arrayCellsWithCheckersToFight.append(cell)
-                                }
-                            }
-                        }
-                            break
-                    }
-                }
             }
         }
         
