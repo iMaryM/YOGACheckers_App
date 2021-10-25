@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreMedia
 
 extension CheckersViewController {
     //функция которая определяет клетки в которые можно ходить шашке, которая передана в cell и передан массив шашек которые должны бить
@@ -425,39 +426,41 @@ extension CheckersViewController {
                     
                     //проверяем каждую клеточку дигонали на наличие шашки противоположного цвета и пустой клеточки за ней
                     if !cellsOfDiagonalRightS.isEmpty {
-                        for cellOfDiagonalRightS in cellsOfDiagonalRightS {
-                            //проверяем пустая ли следующая клетка
+                        var iterator = 2
+                        for (index, cellOfDiagonalRightS) in cellsOfDiagonalRightS.enumerated() {
                             if cellOfDiagonalRightS.checker != nil {
-                                //проверяем цвет шашки в клеточке
                                 if (cellOfDiagonalRightS.checker?.color == .black_checker) || (cellOfDiagonalRightS.checker?.color == .black_queen_checker){
-                                    //если шашка противоположного цвета то проверяем следующую клетку
-                                    for nextCellOfDiagonalRightS in cellsOfDiagonalRightS {
-                                        //находим следующую клетку
-                                        if nextCellOfDiagonalRightS.position == CGPoint(x: cellOfDiagonalRightS.position.x + (checkerBoard.frame.width / 8), y: cellOfDiagonalRightS.position.y + (checkerBoard.frame.height / 8)) {
-                                            if nextCellOfDiagonalRightS.checker == nil {
-                                                arrayOfPoints.append((fightCellPoint: cellOfDiagonalRightS.position, newCell: nextCellOfDiagonalRightS.position))
-
+                                    if index != cellsOfDiagonalRightS.count - 1{
+                                        if cellsOfDiagonalRightS[index + 1].checker == nil {
+                                            arrayOfPoints.append((fightCellPoint: cellOfDiagonalRightS.position, newCell: cellsOfDiagonalRightS[index + 1].position))
+                                            while (index + iterator != cellsOfDiagonalRightS.count) {
+                                                if cellsOfDiagonalRightS[index + iterator].checker == nil {
+                                                    arrayOfPoints.append((fightCellPoint: cellOfDiagonalRightS.position, newCell: cellsOfDiagonalRightS[index + iterator].position))
+                                                    
+                                                }
+                                                iterator += 1
                                             }
                                         }
                                     }
                                 }
-                                //если в клетке шашка такого же цвета, то прерываем выполнение цикла
-                                break
                             }
                         }
                     }
-                        
-                        
-                        
                     
                     if !cellsOfDiagonalLeftS.isEmpty {
-                        for cellOfDiagonalLeftS in cellsOfDiagonalLeftS {
+                        var iterator = 2
+                        for (index, cellOfDiagonalLeftS) in cellsOfDiagonalLeftS.enumerated() {
                             if cellOfDiagonalLeftS.checker != nil {
                                 if (cellOfDiagonalLeftS.checker?.color == .black_checker) || (cellOfDiagonalLeftS.checker?.color == .black_queen_checker){
-                                    for nextCellOfDiagonalLeftS in cellsOfDiagonalLeftS {
-                                        if nextCellOfDiagonalLeftS.position == CGPoint(x: cellOfDiagonalLeftS.position.x - (checkerBoard.frame.width / 8), y: cellOfDiagonalLeftS.position.y + (checkerBoard.frame.height / 8)) {
-                                            if nextCellOfDiagonalLeftS.checker == nil {
-                                                arrayOfPoints.append((fightCellPoint: cellOfDiagonalLeftS.position, newCell: nextCellOfDiagonalLeftS.position))
+                                    if index != cellsOfDiagonalLeftS.count - 1{
+                                        if cellsOfDiagonalLeftS[index + 1].checker == nil {
+                                            arrayOfPoints.append((fightCellPoint: cellOfDiagonalLeftS.position, newCell: cellsOfDiagonalLeftS[index + 1].position))
+                                            while (index + iterator != cellsOfDiagonalLeftS.count) {
+                                                if cellsOfDiagonalLeftS[index + iterator].checker == nil {
+                                                    arrayOfPoints.append((fightCellPoint: cellOfDiagonalLeftS.position, newCell: cellsOfDiagonalLeftS[index + iterator].position))
+                                                    
+                                                }
+                                                iterator += 1
                                             }
                                         }
                                     }
@@ -468,14 +471,19 @@ extension CheckersViewController {
                     }
                     
                     if !cellsOfDiagonalRightB.isEmpty {
-                        for cellOfDiagonalRightB in cellsOfDiagonalRightB {
+                        var iterator = 2
+                        for (index, cellOfDiagonalRightB) in cellsOfDiagonalRightB.enumerated() {
                             if cellOfDiagonalRightB.checker != nil {
                                 if (cellOfDiagonalRightB.checker?.color == .black_checker) || (cellOfDiagonalRightB.checker?.color == .black_queen_checker){
-                                    for nextCellOfDiagonalRightB in cellsOfDiagonalRightB {
-                                        if nextCellOfDiagonalRightB.position == CGPoint(x: cellOfDiagonalRightB.position.x + (checkerBoard.frame.width / 8), y: cellOfDiagonalRightB.position.y - (checkerBoard.frame.height / 8)) {
-                                            if nextCellOfDiagonalRightB.checker == nil {
-                                                arrayOfPoints.append((fightCellPoint: cellOfDiagonalRightB.position, newCell: nextCellOfDiagonalRightB.position))
-//                                                break
+                                    if index != cellsOfDiagonalRightB.count - 1{
+                                        if cellsOfDiagonalRightB[index + 1].checker == nil {
+                                            arrayOfPoints.append((fightCellPoint: cellOfDiagonalRightB.position, newCell: cellsOfDiagonalRightB[index + 1].position))
+                                            while (index + iterator != cellsOfDiagonalRightB.count) {
+                                                if cellsOfDiagonalRightB[index + iterator].checker == nil {
+                                                    arrayOfPoints.append((fightCellPoint: cellOfDiagonalRightB.position, newCell: cellsOfDiagonalRightB[index + iterator].position))
+                                                    
+                                                }
+                                                iterator += 1
                                             }
                                         }
                                     }
@@ -486,13 +494,18 @@ extension CheckersViewController {
                     }
                     
                     if !cellsOfDiagonalLeftB.isEmpty {
-                        for cellOfDiagonalLeftB in cellsOfDiagonalLeftB {
+                        var iterator = 2
+                        for (index, cellOfDiagonalLeftB) in cellsOfDiagonalLeftB.enumerated() {
                             if cellOfDiagonalLeftB.checker != nil {
                                 if (cellOfDiagonalLeftB.checker?.color == .black_checker) || (cellOfDiagonalLeftB.checker?.color == .black_queen_checker){
-                                    for nextCellOfDiagonalLeftB in cellsOfDiagonalLeftB {
-                                        if nextCellOfDiagonalLeftB.position == CGPoint(x: cellOfDiagonalLeftB.position.x - (checkerBoard.frame.width / 8), y: cellOfDiagonalLeftB.position.y - (checkerBoard.frame.height / 8)) {
-                                            if nextCellOfDiagonalLeftB.checker == nil {
-                                                arrayOfPoints.append((fightCellPoint: cellOfDiagonalLeftB.position, newCell: nextCellOfDiagonalLeftB.position))
+                                    if index != cellsOfDiagonalLeftB.count - 1{
+                                        if cellsOfDiagonalLeftB[index + 1].checker == nil {
+                                            arrayOfPoints.append((fightCellPoint: cellOfDiagonalLeftB.position, newCell: cellsOfDiagonalLeftB[index + 1].position))
+                                            while (index + iterator != cellsOfDiagonalLeftB.count) {
+                                                if cellsOfDiagonalLeftB[index + iterator].checker == nil {
+                                                    arrayOfPoints.append((fightCellPoint: cellOfDiagonalLeftB.position, newCell: cellsOfDiagonalLeftB[index + iterator].position))
+                                                }
+                                                iterator += 1
                                             }
                                         }
                                     }
@@ -622,37 +635,41 @@ extension CheckersViewController {
                     
                     //проверяем каждую клеточку дигонали на наличие шашки противоположного цвета и пустой клеточки за ней
                     if !cellsOfDiagonalRightS.isEmpty {
-                        
-                        for cellOfDiagonalRightS in cellsOfDiagonalRightS {
-                            //проверяем пустая ли следующая клетка
+                        var iterator = 2
+                        for (index, cellOfDiagonalRightS) in cellsOfDiagonalRightS.enumerated() {
                             if cellOfDiagonalRightS.checker != nil {
-                                //проверяем цвет шашки в клеточке
                                 if (cellOfDiagonalRightS.checker?.color == .white_checker) || (cellOfDiagonalRightS.checker?.color == .white_queen_checker){
-                                    //если шашка противоположного цвета то проверяем следующую клетку
-                                    for nextCellOfDiagonalRightS in cellsOfDiagonalRightS {
-                                        //находим следующую клетку
-                                        if nextCellOfDiagonalRightS.position == CGPoint(x: cellOfDiagonalRightS.position.x + (checkerBoard.frame.width / 8), y: cellOfDiagonalRightS.position.y + (checkerBoard.frame.height / 8)) {
-                                            if nextCellOfDiagonalRightS.checker == nil {
-                                                arrayOfPoints.append((fightCellPoint: cellOfDiagonalRightS.position, newCell: nextCellOfDiagonalRightS.position))
+                                    if index != cellsOfDiagonalRightS.count - 1{
+                                        if cellsOfDiagonalRightS[index + 1].checker == nil {
+                                            arrayOfPoints.append((fightCellPoint: cellOfDiagonalRightS.position, newCell: cellsOfDiagonalRightS[index + 1].position))
+                                            while (index + iterator != cellsOfDiagonalRightS.count) {
+                                                if cellsOfDiagonalRightS[index + iterator].checker == nil {
+                                                    arrayOfPoints.append((fightCellPoint: cellOfDiagonalRightS.position, newCell: cellsOfDiagonalRightS[index + iterator].position))
+                                                    
+                                                }
+                                                iterator += 1
                                             }
                                         }
                                     }
                                 }
-                                //если в клетке шашка такого же цвета, то прерываем выполнение цикла
-                                break
                             }
                         }
-                        
                     }
                     
                     if !cellsOfDiagonalLeftS.isEmpty {
-                        for cellOfDiagonalLeftS in cellsOfDiagonalLeftS {
+                        var iterator = 2
+                        for (index, cellOfDiagonalLeftS) in cellsOfDiagonalLeftS.enumerated() {
                             if cellOfDiagonalLeftS.checker != nil {
                                 if (cellOfDiagonalLeftS.checker?.color == .white_checker) || (cellOfDiagonalLeftS.checker?.color == .white_queen_checker){
-                                    for nextCellOfDiagonalLeftS in cellsOfDiagonalLeftS {
-                                        if nextCellOfDiagonalLeftS.position == CGPoint(x: cellOfDiagonalLeftS.position.x - (checkerBoard.frame.width / 8), y: cellOfDiagonalLeftS.position.y + (checkerBoard.frame.height / 8)) {
-                                            if nextCellOfDiagonalLeftS.checker == nil {
-                                                arrayOfPoints.append((fightCellPoint: cellOfDiagonalLeftS.position, newCell: nextCellOfDiagonalLeftS.position))
+                                    if index != cellsOfDiagonalLeftS.count - 1{
+                                        if cellsOfDiagonalLeftS[index + 1].checker == nil {
+                                            arrayOfPoints.append((fightCellPoint: cellOfDiagonalLeftS.position, newCell: cellsOfDiagonalLeftS[index + 1].position))
+                                            while (index + iterator != cellsOfDiagonalLeftS.count) {
+                                                if cellsOfDiagonalLeftS[index + iterator].checker == nil {
+                                                    arrayOfPoints.append((fightCellPoint: cellOfDiagonalLeftS.position, newCell: cellsOfDiagonalLeftS[index + iterator].position))
+                                                    
+                                                }
+                                                iterator += 1
                                             }
                                         }
                                     }
@@ -663,13 +680,19 @@ extension CheckersViewController {
                     }
                     
                     if !cellsOfDiagonalRightB.isEmpty {
-                        for cellOfDiagonalRightB in cellsOfDiagonalRightB {
+                        var iterator = 2
+                        for (index, cellOfDiagonalRightB) in cellsOfDiagonalRightB.enumerated() {
                             if cellOfDiagonalRightB.checker != nil {
                                 if (cellOfDiagonalRightB.checker?.color == .white_checker) || (cellOfDiagonalRightB.checker?.color == .white_queen_checker){
-                                    for nextCellOfDiagonalRightB in cellsOfDiagonalRightB {
-                                        if nextCellOfDiagonalRightB.position == CGPoint(x: cellOfDiagonalRightB.position.x + (checkerBoard.frame.width / 8), y: cellOfDiagonalRightB.position.y - (checkerBoard.frame.height / 8)) {
-                                            if nextCellOfDiagonalRightB.checker == nil {
-                                                arrayOfPoints.append((fightCellPoint: cellOfDiagonalRightB.position, newCell: nextCellOfDiagonalRightB.position))
+                                    if index != cellsOfDiagonalRightB.count - 1{
+                                        if cellsOfDiagonalRightB[index + 1].checker == nil {
+                                            arrayOfPoints.append((fightCellPoint: cellOfDiagonalRightB.position, newCell: cellsOfDiagonalRightB[index + 1].position))
+                                            while (index + iterator != cellsOfDiagonalRightB.count) {
+                                                if cellsOfDiagonalRightB[index + iterator].checker == nil {
+                                                    arrayOfPoints.append((fightCellPoint: cellOfDiagonalRightB.position, newCell: cellsOfDiagonalRightB[index + iterator].position))
+                                                    
+                                                }
+                                                iterator += 1
                                             }
                                         }
                                     }
@@ -680,13 +703,19 @@ extension CheckersViewController {
                     }
                     
                     if !cellsOfDiagonalLeftB.isEmpty {
-                        for cellOfDiagonalLeftB in cellsOfDiagonalLeftB {
+                        var iterator = 2
+                        for (index, cellOfDiagonalLeftB) in cellsOfDiagonalLeftB.enumerated() {
                             if cellOfDiagonalLeftB.checker != nil {
                                 if (cellOfDiagonalLeftB.checker?.color == .white_checker) || (cellOfDiagonalLeftB.checker?.color == .white_queen_checker){
-                                    for nextCellOfDiagonalLeftB in cellsOfDiagonalLeftB {
-                                        if nextCellOfDiagonalLeftB.position == CGPoint(x: cellOfDiagonalLeftB.position.x - (checkerBoard.frame.width / 8), y: cellOfDiagonalLeftB.position.y - (checkerBoard.frame.height / 8)) {
-                                            if nextCellOfDiagonalLeftB.checker == nil {
-                                                arrayOfPoints.append((fightCellPoint: cellOfDiagonalLeftB.position, newCell: nextCellOfDiagonalLeftB.position))
+                                    if index != cellsOfDiagonalLeftB.count - 1{
+                                        if cellsOfDiagonalLeftB[index + 1].checker == nil {
+                                            arrayOfPoints.append((fightCellPoint: cellOfDiagonalLeftB.position, newCell: cellsOfDiagonalLeftB[index + 1].position))
+                                            while (index + iterator != cellsOfDiagonalLeftB.count) {
+                                                if cellsOfDiagonalLeftB[index + iterator].checker == nil {
+                                                    arrayOfPoints.append((fightCellPoint: cellOfDiagonalLeftB.position, newCell: cellsOfDiagonalLeftB[index + iterator].position))
+                                                    
+                                                }
+                                                iterator += 1
                                             }
                                         }
                                     }
