@@ -68,6 +68,8 @@
 		84AC994226BFCFF400BF2F68 /* History.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84AC994126BFCFF400BF2F68 /* History.storyboard */; };
 		84D144DB26D15A820024B9DE /* CustomBackground.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84D144DA26D15A820024B9DE /* CustomBackground.storyboard */; };
 		84D144DD26D15AA50024B9DE /* CustomBackgroundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D144DC26D15AA50024B9DE /* CustomBackgroundViewController.swift */; };
+		84F0743C2726D8FF0035FD3C /* GetPossibleCellsToFight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F0743B2726D8FF0035FD3C /* GetPossibleCellsToFight.swift */; };
+		84F0743F2726D96E0035FD3C /* GetPossibleCellsToStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F0743E2726D96E0035FD3C /* GetPossibleCellsToStep.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -134,6 +136,8 @@
 		84AC994126BFCFF400BF2F68 /* History.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = History.storyboard; sourceTree = "<group>"; };
 		84D144DA26D15A820024B9DE /* CustomBackground.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CustomBackground.storyboard; sourceTree = "<group>"; };
 		84D144DC26D15AA50024B9DE /* CustomBackgroundViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBackgroundViewController.swift; sourceTree = "<group>"; };
+		84F0743B2726D8FF0035FD3C /* GetPossibleCellsToFight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPossibleCellsToFight.swift; sourceTree = "<group>"; };
+		84F0743E2726D96E0035FD3C /* GetPossibleCellsToStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPossibleCellsToStep.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -355,13 +359,13 @@
 		8481DC5A26AF565700840FB3 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				84F0743D2726D94C0035FD3C /* Game */,
 				8481DC5B26AF568100840FB3 /* UIViewController+Storyboard.swift */,
 				8413622D26C44BB4001D4ECE /* UIViewController+Alert.swift */,
 				846488A226CD339100C08884 /* DrawCheckerBord.swift */,
 				846488A426CD371000C08884 /* AttributedText.swift */,
 				8460771E26E28940003DC0F9 /* Timer.swift */,
 				8460772026E29C77003DC0F9 /* Date+Format.swift */,
-				8457B71A26ED02D000F63D01 /* GameChecker.swift */,
 				84243B912711F2E30072B52C /* String + Localized.swift */,
 			);
 			path = Extensions;
@@ -374,6 +378,16 @@
 				84A897DC26D2BEE1006FB831 /* CustomButtonMainMenu.xib */,
 			);
 			path = CustomButton;
+			sourceTree = "<group>";
+		};
+		84F0743D2726D94C0035FD3C /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				8457B71A26ED02D000F63D01 /* GameChecker.swift */,
+				84F0743B2726D8FF0035FD3C /* GetPossibleCellsToFight.swift */,
+				84F0743E2726D96E0035FD3C /* GetPossibleCellsToStep.swift */,
+			);
+			path = Game;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -470,6 +484,7 @@
 			files = (
 				846488AA26CD742A00C08884 /* CheckerCollectionViewCell.swift in Sources */,
 				84D144DD26D15AA50024B9DE /* CustomBackgroundViewController.swift in Sources */,
+				84F0743C2726D8FF0035FD3C /* GetPossibleCellsToFight.swift in Sources */,
 				8481DC4526AF42DD00840FB3 /* MainViewController.swift in Sources */,
 				84243C06271492240072B52C /* Results+CoreDataClass.swift in Sources */,
 				84243C07271492240072B52C /* Results+CoreDataProperties.swift in Sources */,
@@ -477,6 +492,7 @@
 				84A897DB26D2BE85006FB831 /* CustomButtonMainMenu.swift in Sources */,
 				846076F726DFC9B2003DC0F9 /* PlayersViewController.swift in Sources */,
 				8464889F26CCF16A00C08884 /* Checker.swift in Sources */,
+				84F0743F2726D96E0035FD3C /* GetPossibleCellsToStep.swift in Sources */,
 				84534966270B46D2002ABC42 /* OnOffMusicTableViewCell.swift in Sources */,
 				8481DC4126AF42DD00840FB3 /* AppDelegate.swift in Sources */,
 				846076A826DB6605003DC0F9 /* SettingsManager.swift in Sources */,
