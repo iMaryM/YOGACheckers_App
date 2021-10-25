@@ -45,7 +45,7 @@ extension CheckersViewController {
               }
 
             //проверяем есть ли шашки которые должны обязательно побить
-            let cellWhithCheckerNeedFight = getCellWithCheckerNeedToFight(checkerColor: currentCheckerToMove)
+            let cellWhithCheckerNeedFight = getCellWithCheckerNeedToFight()
             
             //получаем массив возможных ходов для шашки, которую мы взяли
             var arrayOfPoints = getPossibleCellSteps(cell: currentView, arryaOfFightCells: cellWhithCheckerNeedFight)
@@ -174,7 +174,7 @@ extension CheckersViewController {
                 } else {
                     
                     //проверяем есть ли шашки которые должны обязательно побить
-                    let cellWhithCheckerNeedFight = getCellWithCheckerNeedToFight(checkerColor: currentCheckerToMove)
+                    let cellWhithCheckerNeedFight = getCellWithCheckerNeedToFight()
                     
                     //если есть шашки которые должны бить проверяем шашка которую мы взяли входит в массив шашек, которые должны бить
                     if !cellWhithCheckerNeedFight.isEmpty, isFightChecker {
