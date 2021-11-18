@@ -194,8 +194,6 @@ extension CheckersViewController {
             default:
                 break
             }
-            
-//        }
     }
     
     //функция для определения цвета который должен ходить

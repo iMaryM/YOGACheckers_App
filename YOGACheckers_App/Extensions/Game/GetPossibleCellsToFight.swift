@@ -11,11 +11,14 @@ extension CheckersViewController {
     //функция для определения шашки которая должна бить (возвращает массив шашек, которые должны бить)
     func getCellWithCheckerNeedToFight () -> [Cell] {
         
+        //клеточки шахматной доски на текущий момент
         let arrayOfCells = createArryaOfCells()
         
+        //складываем клетки с шашками которые должжны бить
         var arrayCellsWithCheckersToFight: [Cell] = []
         
         for cell in arrayOfCells {
+            //проверяем есть ли шашка в клеточке
             if let checker = cell.checker {
                 
                 //находим координаты клеточек в которых может быть сделан ход (свободный) ВПЕРЕД
